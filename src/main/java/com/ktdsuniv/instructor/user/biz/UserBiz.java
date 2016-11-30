@@ -1,5 +1,10 @@
 package com.ktdsuniv.instructor.user.biz;
 
-public interface UserBiz {
+import user.schema.UsersSchema;
 
+public interface UserBiz {
+	
+	public void signUp(UsersSchema user);
+
+	public UsersSchema signIn(UsersSchema user);
 }
