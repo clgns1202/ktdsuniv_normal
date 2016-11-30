@@ -1,6 +1,6 @@
 package com.ktdsuniv.instructor.user.service;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,5 +10,7 @@ public interface UserService {
 
 	public UsersSchema getUserInfo(HttpSession session);
 
+	public void signUp(UsersSchema user);
 
+	public UsersSchema signIn(UsersSchema user, HttpSession session);
 }
