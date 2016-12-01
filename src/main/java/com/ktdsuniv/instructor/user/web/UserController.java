@@ -32,11 +32,13 @@ public class UserController {
 		return "/test";
 	}
 	
-	@RequestMapping("/myPage")
+	@RequestMapping("/user/myInfo")
 	public ModelAndView viewMypage(HttpSession session){
 		
 		ModelAndView view = new ModelAndView();
 		UsersSchema user = userService.getUserInfo(session);
+		
+		
 		view.setViewName("/user/myInfo");
 		view.addObject("user",user);
 
@@ -48,11 +50,10 @@ public class UserController {
 		ModelAndView view = new ModelAndView();
 		view.setViewName("/user/signUp");
 		return view;
-	}
+	}	
 	
 	@RequestMapping("/doSignUp")
 	public String doSignUpAction(UsersSchema user){
-		logger.debug(user.getUserId());
 		userService.signUp(user);
 		
 		return "redirect:/signIn";
@@ -68,7 +69,7 @@ public class UserController {
 	@RequestMapping("/doSignIn")
 	public String doSignInAction(UsersSchema user, HttpSession session){
 		
-		boolean signInResult = userService.signIn(user, session);
+		userService.signIn(user, session);
 		return "redirect:/main";
 		
 	}
@@ -78,4 +79,10 @@ public class UserController {
 		session.invalidate();
 		return "user/signIn";
 	}
+	
+	@RequestMapping("/user/")
+	public ModelAndView 
+	
+	
+	
 }

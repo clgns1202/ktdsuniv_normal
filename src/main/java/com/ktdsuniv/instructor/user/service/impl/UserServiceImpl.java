@@ -27,7 +27,6 @@ public class UserServiceImpl implements UserService {
 	public UsersSchema getUserInfo(HttpSession session) {
 		
 		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
-		logger.debug(user.getUserId());
 		return user;
 	}
 	
@@ -40,6 +39,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean signIn(UsersSchema user, HttpSession session) {
 		UsersSchema signedUser = userBiz.signIn(user);
+		logger.debug("로그인정보"+signedUser);
+		
 		if( signedUser != null){
 			session.setAttribute(Session.USER, signedUser);
 			return true;
