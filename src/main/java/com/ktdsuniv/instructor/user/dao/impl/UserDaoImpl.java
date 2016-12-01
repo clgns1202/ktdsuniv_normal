@@ -16,6 +16,17 @@ public class UserDaoImpl extends MongoTemplateSupport implements UserDao {
 	}
 	
 	@Override
+	public String getSalt(UsersSchema user) {
+		Criteria criteria = new Criteria("userId");
+		criteria.is(user.getUserId());
+		
+		Query query = new Query(criteria);
+		query.fields().include("userSalt");
+
+		return getMongo().findOne(query, UsersSchema.class).getUserSalt();
+	}
+	
+	@Override
 	public UsersSchema signIn(UsersSchema user) {
 		Criteria criteria = new Criteria("userId");
 		criteria.is(user.getUserId());

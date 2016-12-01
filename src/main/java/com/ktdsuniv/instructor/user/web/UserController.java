@@ -68,8 +68,14 @@ public class UserController {
 	@RequestMapping("/doSignIn")
 	public String doSignInAction(UsersSchema user, HttpSession session){
 		
-		UsersSchema signInResult = userService.signIn(user, session);
+		boolean signInResult = userService.signIn(user, session);
 		return "redirect:/main";
 		
+	}
+	
+	@RequestMapping("/signOut")
+	public String doSignOutAction(HttpSession session){
+		session.invalidate();
+		return "user/signIn";
 	}
 }
