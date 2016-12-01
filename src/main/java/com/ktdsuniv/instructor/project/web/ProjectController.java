@@ -48,8 +48,8 @@ public class ProjectController {
 		return view;
 	}
 	@RequestMapping("/doAddProject")
-	public String doAddProjectAction(ProjectsSchema project){
-		projectService.addProject(project);
+	public String doAddProjectAction(ProjectsSchema project, HttpSession session){
+		projectService.addProject(project,session);
 		
 		return "redirect:/project/";
 	}
@@ -67,12 +67,9 @@ public class ProjectController {
 	@RequestMapping("/modifyProject/{id}")
 	public ModelAndView viewModifyProjectPage(@PathVariable String id, HttpSession session){
 		ModelAndView view = new ModelAndView();
+		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
 		
 		ProjectsSchema project = projectService.getProjectBy(id);
-		
-		UsersSchema user = new UsersSchema();
-		user.setAddress("test");
-		user.setId("test");
 		
 		view.setViewName("/project/modifyProject");
 		if(user.getId().equals(project.getUser().getId())) {
@@ -82,24 +79,14 @@ public class ProjectController {
 		return view;
 	}
 	@RequestMapping("/doModifyProject/{id}")
-	public String doModifyProjectAction(@PathVariable String id, HttpSession session){
-		UsersSchema user = new UsersSchema();
-		user.setAddress("test");
-		user.setId("test");
+	public String doModifyProjectAction(ProjectsSchema project){
 		
-		session.setAttribute(Session.USER, user);
-		projectService.modifyProject(id, session);
+		projectService.modifyProject(project);
 		
 		return "redirect:/project/";
 	}
 	@RequestMapping("/doDeleteProject/{id}")
 	public String doAddProjectAction(@PathVariable String id, HttpSession session){
-		
-		UsersSchema user = new UsersSchema();
-		user.setAddress("test");
-		user.setId("test");
-		
-		session.setAttribute(Session.USER, user);
 		
 		projectService.deleteProject(id, session);
 		

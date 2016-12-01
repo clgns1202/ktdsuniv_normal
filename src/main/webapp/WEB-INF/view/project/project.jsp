@@ -23,12 +23,14 @@
 	<tr>
 		<td align=center><a href="<c:url value='/project/detailProject/${project.id}'/>">${project.projectName}</a></td>
 		<td align=center> 팀 이름</td>
-		<td align=center> 팀장</td>
+		<td align=center> ${project.user.userName}</td>
 		<td align=center> ${project.createdDate} </td>
 		<tr><td><hr/></td></tr>
  	</tr>
 	</c:forEach>
 </table>
+<c:if test="${sessionScope._USER_.id ne null}">
 	<input type="button" value="프로젝트 추가" onclick="location.href='<c:url value="/project/addProject"/>'" />
+	</c:if>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.ktdsuniv.instructor.project.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import com.ktdsuniv.instructor.project.service.ProjectService;
 
 import common.constants.Session;
 import project.schema.ProjectsSchema;
+import project.schema.TeamsSchema;
 import user.schema.UsersSchema;
 
 public class ProjectServiceImpl implements ProjectService{
@@ -24,8 +26,21 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public void addProject(ProjectsSchema project) {
+	public void addProject(ProjectsSchema project, HttpSession session) {
 		project.setCreatedDate(new Date());
+		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
+		project.setUser(user);
+		logger.debug("프로젝트유저정보"+user);
+	/*	
+		TeamsSchema teams = new TeamsSchema();
+		List<UsersSchema> users = new ArrayList<UsersSchema>();
+		
+		for (UsersSchema usersSchema : users) {
+			if (usersSchema.getUserName() == user.getUserName() ){
+				project.setTeam(teams);
+			}
+		}*/
+		
 		projectBiz.addProject(project);
 	}
 
@@ -54,14 +69,11 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public boolean modifyProject(String id, HttpSession session) {
-		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
-		
-		ProjectsSchema project = projectBiz.getProjectBy(id);
-		if(user.getId().equals(project.getUser().getId())) {
-			return projectBiz.modifyProject(id);
-		}
-		return false;
+	public void modifyProject(ProjectsSchema project) {
+		project.setCreatedDate(new Date());
+		projectBiz.modifyProject(project);
 	}
+
+	
 	
 }

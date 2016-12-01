@@ -2,6 +2,8 @@ package com.ktdsuniv.instructor.project.dao.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -45,8 +47,7 @@ public class ProjectDaoImpl extends MongoTemplateSupport implements ProjectDao {
 
 
 	@Override
-	public int modifyProject(String id) {
-		ProjectsSchema project = new ProjectsSchema();
+	public void modifyProject(ProjectsSchema project) {
 		Criteria criteria = new Criteria("_id");
 		criteria.is(project.getId());
 
@@ -58,8 +59,6 @@ public class ProjectDaoImpl extends MongoTemplateSupport implements ProjectDao {
 		originalSchema.setCreatedDate(project.getCreatedDate());
 
 		getMongo().save(originalSchema);
-
-		return 1;
 
 	}
 

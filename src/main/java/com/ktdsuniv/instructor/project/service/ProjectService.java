@@ -8,7 +8,7 @@ import project.schema.ProjectsSchema;
 
 public interface ProjectService {
 
-	public void addProject(ProjectsSchema project);
+	public void addProject(ProjectsSchema project, HttpSession session);
 
 	public List<ProjectsSchema> getAllProjects();
 
@@ -16,6 +16,6 @@ public interface ProjectService {
 
 	public boolean deleteProject(String id, HttpSession session);
 
-	public boolean modifyProject(String id, HttpSession session);
+	public void modifyProject(ProjectsSchema project);
 
 }

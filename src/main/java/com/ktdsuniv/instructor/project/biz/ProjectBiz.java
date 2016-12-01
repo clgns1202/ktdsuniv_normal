@@ -3,6 +3,7 @@ package com.ktdsuniv.instructor.project.biz;
 import java.util.List;
 
 import project.schema.ProjectsSchema;
+import user.schema.UsersSchema;
 
 public interface ProjectBiz {
 
@@ -14,6 +15,6 @@ public interface ProjectBiz {
 
 	public boolean deleteProject(String id);
 
-	public boolean modifyProject(String id);
+	public void modifyProject(ProjectsSchema project);
 
 }

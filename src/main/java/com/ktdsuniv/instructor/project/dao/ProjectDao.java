@@ -2,7 +2,10 @@ package com.ktdsuniv.instructor.project.dao;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import project.schema.ProjectsSchema;
+import user.schema.UsersSchema;
 
 public interface ProjectDao {
 
@@ -14,7 +17,8 @@ public interface ProjectDao {
 
 	public int deleteProject(String id);
 
-	public int modifyProject(String id);
+
+	public void modifyProject(ProjectsSchema project);
 
 
 
