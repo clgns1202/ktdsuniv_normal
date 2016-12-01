@@ -80,9 +80,4 @@ public class UserController {
 		return "user/signIn";
 	}
 	
-	@RequestMapping("/user/")
-	public ModelAndView 
-	
-	
-	
 }
