@@ -8,5 +8,5 @@ public interface UserService {
 
 	public void signUp(UsersSchema user);
 
-	public UsersSchema signIn(UsersSchema user, HttpSession session);
+	public boolean signIn(UsersSchema user, HttpSession session);
 }

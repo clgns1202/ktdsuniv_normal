@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.ktdsuniv.instructor.user.biz.UserBiz;
 import com.ktdsuniv.instructor.user.service.UserService;
 
+import common.constants.Session;
 import user.schema.UsersSchema;
 
 public class UserServiceImpl implements UserService {
@@ -24,7 +25,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UsersSchema signIn(UsersSchema user, HttpSession session) {
-		return userBiz.signIn(user);
+	public boolean signIn(UsersSchema user, HttpSession session) {
+		UsersSchema signedUser = userBiz.signIn(user);
+		if( signedUser != null){
+			session.setAttribute(Session.USER, signedUser);
+			return true;
+		}
+		
+		return false;
 	}
 }
