@@ -1,6 +1,5 @@
 package com.ktdsuniv.instructor.user.web;
 
-<<<<<<< HEAD
 import javax.servlet.http.HttpSession;
 
 import java.util.Date;

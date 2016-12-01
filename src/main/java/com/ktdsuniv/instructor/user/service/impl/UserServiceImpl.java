@@ -4,6 +4,9 @@ import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ktdsuniv.instructor.user.biz.UserBiz;
 import com.ktdsuniv.instructor.user.service.UserService;
 
@@ -11,6 +14,8 @@ import common.constants.Session;
 import user.schema.UsersSchema;
 
 public class UserServiceImpl implements UserService {
+	
+	private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
 	private UserBiz userBiz;
 	
@@ -22,6 +27,7 @@ public class UserServiceImpl implements UserService {
 	public UsersSchema getUserInfo(HttpSession session) {
 		
 		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
+		logger.debug(user.getUserId());
 		return user;
 	}
 	
