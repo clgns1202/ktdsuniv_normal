@@ -60,7 +60,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/signIn")
-	public ModelAndView viewSignInpage(){
+	public ModelAndView viewSignInPage(){
 		ModelAndView view = new ModelAndView();
 		view.setViewName("user/signIn");
 		return view;
