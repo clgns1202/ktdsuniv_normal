@@ -38,7 +38,6 @@ public class UserController {
 		ModelAndView view = new ModelAndView();
 		UsersSchema user = userService.getUserInfo(session);
 		
-		
 		view.setViewName("/user/myInfo");
 		view.addObject("user",user);
 
