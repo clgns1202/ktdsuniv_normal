@@ -33,15 +33,14 @@
 	<hr/>
 	<h4>${lecture.lectureContent}</h4>
 	
-	
-	
+	<c:set var="doneLoop" value="false" />
 	<c:forEach items="${lecture.user}" var="users">	
 	
 		<c:if test="${users.userName eq sessionScope._USER_.userName}">
 			<c:set var="doneLoop" value="true" />
-				<c:if test="${users.userName ne sessionScope._USER_.userName}">
+<%-- 				<c:if test="${users.userName ne sessionScope._USER_.userName}">
 				<c:set var="doneLoop" value="false" />
-				</c:if>
+				</c:if> --%>
 		</c:if>
 
 	</c:forEach>
