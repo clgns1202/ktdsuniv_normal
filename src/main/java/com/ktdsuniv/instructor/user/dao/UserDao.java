@@ -9,4 +9,8 @@ public interface UserDao {
 	public UsersSchema signIn(UsersSchema user);
 
 	public String getSalt(UsersSchema user);
+
+	public UsersSchema getUserInfo(String userId);
+
+	public int doModifyUserInfoAction(UsersSchema user);
 }

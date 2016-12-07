@@ -2,10 +2,6 @@ package com.ktdsuniv.instructor.user.web;
 
 import javax.servlet.http.HttpSession;
 
-import java.util.Date;
-
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -39,7 +35,7 @@ public class UserController {
 		UsersSchema user = userService.getUserInfo(session);
 		
 		
-		view.setViewName("/user/myInfo");
+		view.setViewName("/user/myInfo/myInfo");
 		view.addObject("user",user);
 
 		return view;
@@ -80,9 +76,42 @@ public class UserController {
 		return "user/signIn";
 	}
 	
-	@RequestMapping("/user/")
-	public ModelAndView 
+	@RequestMapping("/user/viewUserModifyPage")
+	public ModelAndView viewUserModifyPage(HttpSession session){
+		UsersSchema user = userService.getUserInfo(session);
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/user/myInfo/userInfoModify");
+		view.addObject("user",user);
+		return view;
+	}
 	
+	@RequestMapping("/user/userInfo")
+	public ModelAndView viewUserInfoPage(HttpSession session){
+		
+		UsersSchema user = userService.getUserInfo(session);
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/user/myInfo/userInfo");
+		view.addObject("user",user);
+		return view;
+	}
+	
+	@RequestMapping("/user/doUserInfoModify")
+	public String doModifyUserInfoAction(UsersSchema user){
+		boolean modifyResult = userService.doModifyUserInfoAction(user);
+		if ( modifyResult ){			
+			return "redirect:/user/userInfo";
+		}
+		return "redirect:/user/viewUserModifyPage?errorCode=1";
+	}
+	
+	@RequestMapping("/user/userSecurity")
+	public ModelAndView doModifyInfo(HttpSession session){
+	
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/user/userSecurity");
+		return view;
+	}
+
 	
 	
 }

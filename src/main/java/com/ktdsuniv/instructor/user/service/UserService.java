@@ -13,4 +13,6 @@ public interface UserService {
 	public void signUp(UsersSchema user);
 
 	public boolean signIn(UsersSchema user, HttpSession session);
+
+	public boolean doModifyUserInfoAction(UsersSchema user);
 }

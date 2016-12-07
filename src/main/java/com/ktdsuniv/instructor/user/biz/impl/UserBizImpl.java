@@ -44,4 +44,15 @@ public class UserBizImpl implements UserBiz {
 		
 		return userDao.signIn(user);
 	}
+
+	@Override
+	public UsersSchema getUserInfo(String userId) {
+		
+		return userDao.getUserInfo(userId);
+	}
+
+	@Override
+	public boolean doModifyUserInfoAction(UsersSchema user) {
+		return userDao.doModifyUserInfoAction(user) > 0;
+	}
 }

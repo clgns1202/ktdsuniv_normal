@@ -27,7 +27,8 @@ public class UserServiceImpl implements UserService {
 	public UsersSchema getUserInfo(HttpSession session) {
 		
 		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
-		return user;
+		String userId = user.getUserId();
+		return userBiz.getUserInfo(userId);
 	}
 	
 	@Override
@@ -48,4 +49,11 @@ public class UserServiceImpl implements UserService {
 		
 		return false;
 	}
+
+	@Override
+	public boolean doModifyUserInfoAction(UsersSchema user) {
+		return userBiz.doModifyUserInfoAction(user);
+	}
+
+
 }
