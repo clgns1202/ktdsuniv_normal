@@ -33,9 +33,22 @@
 	<hr/>
 	<h4>${lecture.lectureContent}</h4>
 	
-	<c:forEach items="${lecture.user}" var="users">
-	<c:choose>
-			<c:when test="${users.userName eq sessionScope._USER_.userName}">
+	
+	
+	<c:forEach items="${lecture.user}" var="users">	
+	
+		<c:if test="${users.userName eq sessionScope._USER_.userName}">
+			<c:set var="doneLoop" value="true" />
+				<c:if test="${users.userName ne sessionScope._USER_.userName}">
+				<c:set var="doneLoop" value="false" />
+				</c:if>
+		</c:if>
+
+	</c:forEach>
+
+	
+ 	<c:choose>
+			<c:when test="${doneLoop eq true}">
 					<input type="button" id="applyCancelBtn" name="applyCancelBtn" value="강의 취소" />
 			</c:when>
 			
@@ -43,8 +56,8 @@
 					<input type="button" id="applyBtn" name="applyBtn" value="강의 신청" />
 			</c:otherwise>
 
-	</c:choose>
-	</c:forEach>
+	</c:choose> 
+	
 	
 </body>
 </html>

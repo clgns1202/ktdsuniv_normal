@@ -44,12 +44,12 @@ public class LectureController {
 	}
 	
 	@RequestMapping("/lecture/detail/{lectureId}")
-	public ModelAndView viewDetailLecture(@PathVariable String lectureId, HttpSession session){
+	public ModelAndView viewDetailLecture(@PathVariable String lectureId){
 		ModelAndView view = new ModelAndView();
-		UsersSchema user = new UsersSchema();
-		user.setUserName("test");
-		session.setAttribute(Session.USER, user);
 		LecturesSchema lecture = lectureService.getDetailLecture(lectureId);
+		
+		
+		
 		view.addObject("lecture", lecture);
 		view.setViewName("lecture/detail");
 		return view;
@@ -58,9 +58,6 @@ public class LectureController {
 	@RequestMapping("/lecture/apply/{lectureId}")
 	public ModelAndView doApplylecture(@PathVariable String lectureId, HttpSession session){
 		ModelAndView view = new ModelAndView();
-		UsersSchema user = new UsersSchema();
-		user.setUserName("test");
-		session.setAttribute(Session.USER, user);
 		boolean isSuccess= lectureService.doApplyLecture(lectureId, session);
 		view.setViewName("redirect:/lecture/detail/"+lectureId);
 		return view;
