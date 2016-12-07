@@ -10,17 +10,13 @@
 <body>
 	<table>
 		<tr>강의명</tr>
-		<tr>강의시간</tr>
 		<tr>강의기간</tr>
 		<tr>강사</tr>
-		<tr>강의실</tr>
 	</table>
 	<c:forEach items="${lectureList.pageList}" var="lecture">
 		<tr><a href="<c:url value="/lecture/detail/${lecture.id}"/>">${lecture.lectureName}</a></tr>
-		<tr>${lecture.startTime}-${lecture.endTime}</tr>
 		<tr>${lecture.startDate}-${lecture.endDate}</tr>
 		<tr>${lecture.instructor.user.userName}</tr>
-		<tr>${lecture.room.roomNumber}</tr>
 	</c:forEach>
 
 </body>

@@ -9,11 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ktdsuniv.instructor.lecture.service.LectureService;
 
+import common.constants.Session;
 import common.pageVO.PageListVO;
 import common.pageVO.SearchVO;
 import common.util.pager.ClassicPageExplorer;
 import common.util.pager.PageExplorer;
 import lecture.schema.LecturesSchema;
+import user.schema.UsersSchema;
 
 @Controller
 public class LectureController {
@@ -42,8 +44,11 @@ public class LectureController {
 	}
 	
 	@RequestMapping("/lecture/detail/{lectureId}")
-	public ModelAndView viewDetailLecture(@PathVariable String lectureId){
+	public ModelAndView viewDetailLecture(@PathVariable String lectureId, HttpSession session){
 		ModelAndView view = new ModelAndView();
+		UsersSchema user = new UsersSchema();
+		user.setUserName("test");
+		session.setAttribute(Session.USER, user);
 		LecturesSchema lecture = lectureService.getDetailLecture(lectureId);
 		view.addObject("lecture", lecture);
 		view.setViewName("lecture/detail");
@@ -53,6 +58,9 @@ public class LectureController {
 	@RequestMapping("/lecture/apply/{lectureId}")
 	public ModelAndView doApplylecture(@PathVariable String lectureId, HttpSession session){
 		ModelAndView view = new ModelAndView();
+		UsersSchema user = new UsersSchema();
+		user.setUserName("test");
+		session.setAttribute(Session.USER, user);
 		boolean isSuccess= lectureService.doApplyLecture(lectureId, session);
 		view.setViewName("redirect:/lecture/detail/"+lectureId);
 		return view;
