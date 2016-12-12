@@ -47,9 +47,6 @@ public class LectureController {
 	public ModelAndView viewDetailLecture(@PathVariable String lectureId){
 		ModelAndView view = new ModelAndView();
 		LecturesSchema lecture = lectureService.getDetailLecture(lectureId);
-		
-		
-		
 		view.addObject("lecture", lecture);
 		view.setViewName("lecture/detail");
 		return view;
