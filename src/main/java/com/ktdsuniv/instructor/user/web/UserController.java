@@ -105,11 +105,10 @@ public class UserController {
 	}
 	
 	@RequestMapping("/user/userSecurity")
-	public ModelAndView doModifyInfo(HttpSession session){
-	
-		ModelAndView view = new ModelAndView();
-		view.setViewName("/user/userSecurity");
-		return view;
+	public String securityModify(UsersSchema user,HttpSession session){
+		
+		return ("/user/userSecurity");
+		
 	}
 
 	
