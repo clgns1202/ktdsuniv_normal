@@ -6,10 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ktdsuniv.instructor.user.service.UserService;
 
+import common.constants.Session;
 import user.schema.UsersSchema;
 
 @Controller
@@ -104,12 +107,22 @@ public class UserController {
 		return "redirect:/user/viewUserModifyPage?errorCode=1";
 	}
 	
-	@RequestMapping("/user/userSecurity")
-	public String securityModify(UsersSchema user,HttpSession session){
-		
-		return ("/user/userSecurity");
-		
+	@RequestMapping("/user/userPassword")
+	public String viewUserPasswordConfirm(){
+		return "/user/myInfo/userPassword";
 	}
+	
+	@RequestMapping("/user/userPasswordConfirm")
+	@ResponseBody
+	public boolean doUserPasswordConfirm(@RequestParam String userPassword, HttpSession session){
+		UsersSchema user = (UsersSchema)session.getAttribute(Session.USER);
+		user.setUserPassword(userPassword);
+		boolean isSuccess = userService.signIn(user, session);
+		logger.debug("=================="+isSuccess);
+		return isSuccess;
+	}
+	
+
 
 	
 	

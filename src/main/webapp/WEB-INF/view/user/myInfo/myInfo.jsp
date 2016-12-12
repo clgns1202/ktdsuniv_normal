@@ -20,13 +20,6 @@
 					유저성명 : ${user.userName}<br/>
 					<br/>
 		</div>
-		
-		<div style="display:inline-block;">
-				<a href="<c:url value="/user/userSecurity"/>">
-					<h3>보안설정<br/></h3>
-				</a>
-		</div>
-		
 		<div style="display:inline-block;">
 				<a href="<c:url value="/user/userHistory"/>">
 					<h3>회원기록<br/></h3>

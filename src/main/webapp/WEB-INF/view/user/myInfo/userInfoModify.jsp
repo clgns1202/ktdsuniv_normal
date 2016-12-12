@@ -6,8 +6,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src=""></script>
-<script type="text/javascript" ></script>
+<script type="text/javascript" src="<c:url value="/js/jquery-3.1.1.min.js"/>"></script>
+<script type="text/javascript" >
+	$().ready(function(){
+		$("#userPassword").hide();
+		$("#passwordConfirm").hide();
+		
+
+		$("#modifyPassword").click(function() {
+		            $("#userPassword").show();
+		            $("#passwordConfirm").show();
+		            
+		            $("#passwordConfirm").click(function(){
+		                    
+		                $.post("<c:url value='/user/userPasswordConfirm'/>", {"userPassword" : $("#userPassword").val()} ,function(data){
+		                    if(data == true){
+		                    	win();
+		                    }
+		                    else{
+		                        alert("비밀번호가 틀렸습니다.")
+		                    }
+		                });
+		            });
+		 });
+		
+	});
+	
+	function win(){
+		window.open("<c:url value="/user/userPassword"/>", "", "width=400, height=300, status=1 ,scrollbars=1");
+	}
+
+</script>
 </head>
 	<h1>내정보</h1>
 	
@@ -23,9 +52,10 @@
 						<input type="submit" value="수정하기">
 					</form>
 					<input type="button" value="회원탈퇴" onclick="location.href='<c:url value="/user/withDrawal"/>'">
-					
-		</div>
-
+		</div>	
+		<input type="button" id="modifyPassword"value="비밀번호변경">
+		<input type="password" id="userPassword" placeholder="비밀번호를 입력하세요"/>
+		<input type="button" id="passwordConfirm" value="확인" />
 		<div style="display:inline-block;">
 			<a href="<c:url value="/user/userHistory"/>">
 					<h3>회원기록<br/></h3>
