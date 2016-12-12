@@ -70,8 +70,7 @@ public class UserController {
 	public String doSignInAction(UsersSchema user, HttpSession session){
 		
 		userService.signIn(user, session);
-		return "redirect:/main";
-		
+		return "redirect:/user/signInSuccess";
 	}
 	
 	@RequestMapping("/signOut")
