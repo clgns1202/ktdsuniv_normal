@@ -1,6 +1,7 @@
 package com.ktdsuniv.instructor.user.dao.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -8,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import com.ktdsuniv.instructor.user.dao.UserDao;
 
 import common.support.mongo.MongoTemplateSupport;
+import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 
 public class UserDaoImpl extends MongoTemplateSupport implements UserDao {
@@ -59,6 +61,14 @@ public class UserDaoImpl extends MongoTemplateSupport implements UserDao {
 		originalUser.setModifiedDate(new Date());
 		getMongo().save(originalUser);
 		return 1;
+	}
+
+	@Override
+	public List<LecturesSchema> getUserLecture(UsersSchema user) {
+		Criteria criteria = new Criteria("user.userId");
+		criteria.is(user.getUserId());
+		Query query = new Query(criteria);
+		return getMongo().find(query, LecturesSchema.class, "lectures");
 	}
 	
 }

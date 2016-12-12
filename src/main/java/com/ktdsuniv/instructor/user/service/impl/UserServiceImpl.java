@@ -1,6 +1,7 @@
 package com.ktdsuniv.instructor.user.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +12,7 @@ import com.ktdsuniv.instructor.user.biz.UserBiz;
 import com.ktdsuniv.instructor.user.service.UserService;
 
 import common.constants.Session;
+import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 
 public class UserServiceImpl implements UserService {
@@ -53,6 +55,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean doModifyUserInfoAction(UsersSchema user) {
 		return userBiz.doModifyUserInfoAction(user);
+	}
+
+	@Override
+	public List<LecturesSchema> getUserLecture(HttpSession session) {
+		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
+		return userBiz.getUserLecture(user);
 	}
 
 

@@ -1,5 +1,7 @@
 package com.ktdsuniv.instructor.user.biz.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,6 +9,7 @@ import com.ktdsuniv.instructor.user.biz.UserBiz;
 import com.ktdsuniv.instructor.user.dao.UserDao;
 
 import common.util.SHA256Util;
+import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 
 public class UserBizImpl implements UserBiz {
@@ -54,5 +57,10 @@ public class UserBizImpl implements UserBiz {
 	@Override
 	public boolean doModifyUserInfoAction(UsersSchema user) {
 		return userDao.doModifyUserInfoAction(user) > 0;
+	}
+
+	@Override
+	public List<LecturesSchema> getUserLecture(UsersSchema user) {
+		return userDao.getUserLecture(user);
 	}
 }

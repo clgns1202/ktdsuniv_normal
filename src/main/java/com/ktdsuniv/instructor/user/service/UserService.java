@@ -1,6 +1,10 @@
 package com.ktdsuniv.instructor.user.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
+
+import lecture.schema.LecturesSchema;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,4 +19,6 @@ public interface UserService {
 	public boolean signIn(UsersSchema user, HttpSession session);
 
 	public boolean doModifyUserInfoAction(UsersSchema user);
+
+	public List<LecturesSchema> getUserLecture(HttpSession session);
 }

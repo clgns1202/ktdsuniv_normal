@@ -1,5 +1,8 @@
 package com.ktdsuniv.instructor.user.biz;
 
+import java.util.List;
+
+import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 
 public interface UserBiz {
@@ -11,4 +14,6 @@ public interface UserBiz {
 	public UsersSchema getUserInfo(String userId);
 
 	public boolean doModifyUserInfoAction(UsersSchema user);
+
+	public List<LecturesSchema> getUserLecture(UsersSchema user);
 }

@@ -1,5 +1,7 @@
 package com.ktdsuniv.instructor.user.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ktdsuniv.instructor.user.service.UserService;
 
+import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 
 @Controller
@@ -109,6 +112,17 @@ public class UserController {
 		
 		return ("/user/userSecurity");
 		
+	}
+	
+	@RequestMapping("/user/userLecture")
+	public ModelAndView viewLecturePage(HttpSession session){
+		
+		List<LecturesSchema> lectures = userService.getUserLecture(session);
+		
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/user/myInfo/userLecture");
+		view.addObject("lectures",lectures);
+		return view;
 	}
 
 	

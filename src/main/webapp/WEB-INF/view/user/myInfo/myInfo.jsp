@@ -15,7 +15,10 @@
 	
 		<div style="display:inline-block;">
 				<a href="<c:url value="/user/userInfo"/>">
-					<h3>회원정보<br/></h3>
+					회원정보 
+				</a>
+				<a href="<c:url value="/user/userLecture"/>">
+					내 강의<br/>
 				</a>
 					유저성명 : ${user.userName}<br/>
 					<br/>
