@@ -15,6 +15,7 @@ import com.ktdsuniv.instructor.user.service.UserService;
 
 import common.constants.Session;
 import project.schema.ProjectsSchema;
+import project.schema.TeamsSchema;
 import user.schema.UsersSchema;
 
 @Controller
@@ -44,6 +45,8 @@ public class ProjectController {
 	public ModelAndView viewAddProjectPage(){
 		ModelAndView view = new ModelAndView();
 		view.setViewName("/project/addProject");
+		
+		//List<TeamsSchema> teams = projectService.getAllTeams();
 		
 		return view;
 	}

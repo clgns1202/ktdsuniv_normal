@@ -14,22 +14,26 @@
 	<div>
 	
 		<div style="display:inline-block;">
-				<h3>회원정보<br/></h3>
+				<a href="<c:url value="/user/userInfo"/>">
+					회원정보 
+				</a>
+				<a href="<c:url value="/user/userLecture"/>">
+					내 강의<br/>
+				</a>
 					유저성명 : ${user.userName}<br/>
-					휴대전화	: ${user.phoneNumber}<br/>
-					주소 : ${user.address}<br/>
-					가입일 : ${user.createdDate}<br/>
 					<br/>
-					<input type="button" value="수정" onclick="location.href='<c:url value="/user/myInfoModify"/>'"">
-					<input type="button" value="회원탈퇴" onclick="location.href='<c:url value="/user/withDrawal"/>'"">
 		</div>
 		
 		<div style="display:inline-block;">
-				<h3>보안설정</h3>
+				<a href="<c:url value="/user/userSecurity"/>">
+					<h3>보안설정<br/></h3>
+				</a>
 		</div>
 		
 		<div style="display:inline-block;">
-				<h3>활동기록</h3>
+				<a href="<c:url value="/user/userHistory"/>">
+					<h3>회원기록<br/></h3>
+				</a>
 		</div>		
 				
 	</div>
