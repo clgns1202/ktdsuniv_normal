@@ -38,4 +38,5 @@ public class UserBizImpl implements UserBiz {
 		
 		return userDao.signIn(user);
 	}
+
 }

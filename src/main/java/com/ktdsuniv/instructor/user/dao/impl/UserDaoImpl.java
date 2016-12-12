@@ -37,5 +37,5 @@ public class UserDaoImpl extends MongoTemplateSupport implements UserDao {
 		
 		return getMongo().findOne(query, UsersSchema.class);
 	}
-	
+
 }

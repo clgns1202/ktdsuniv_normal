@@ -53,7 +53,7 @@ public class UserController {
 	@RequestMapping("/doSignIn")
 	public String doSignInAction(UsersSchema user, HttpSession session){
 		
-		boolean signInResult = userService.signIn(user, session);
+		userService.signIn(user, session);
 		return "redirect:/main";
 	}
 	
@@ -62,4 +62,5 @@ public class UserController {
 		session.invalidate();
 		return "user/signIn";
 	}
+	
 }

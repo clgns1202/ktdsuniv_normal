@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="<c:url value="/signUp"/>">회원가입</a>
+	
 	<form method="post" action="<c:url value="/doSignIn"/>">
 		아이디 : <input type="text" name="userId" id="userId" /><br/>
 		비밀번호 : <input type="password" name="userPassword" id="userPassword" /><br/>	
