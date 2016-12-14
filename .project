@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>KtdsSchema</project>
+		<project>ktdsuniv_schema</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
