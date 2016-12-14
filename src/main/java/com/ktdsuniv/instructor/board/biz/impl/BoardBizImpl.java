@@ -1,7 +1,11 @@
 package com.ktdsuniv.instructor.board.biz.impl;
 
+import javax.servlet.http.HttpSession;
+
 import com.ktdsuniv.instructor.board.biz.BoardBiz;
 import com.ktdsuniv.instructor.board.dao.BoardDao;
+
+import board.schema.BoardsSchema;
 
 public class BoardBizImpl implements BoardBiz {
 
@@ -9,6 +13,11 @@ public class BoardBizImpl implements BoardBiz {
 	
 	public void setBoardDao(BoardDao boardDao) {
 		this.boardDao = boardDao;
+	}
+
+	@Override
+	public boolean addDailyReport(BoardsSchema board) {
+		return boardDao.addDailyReport(board) > 0;
 	}
 	
 }

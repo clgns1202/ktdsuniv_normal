@@ -43,7 +43,11 @@
 			<artifactId>KtdsSchema</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
+<<<<<<< HEAD
 			<systemPath>C:\Users\owner\.m2\repository\com\ktds\KtdsSchema\1.0\KtdsSchema-1.0.jar</systemPath>
+=======
+			<systemPath>C:\Users\206-001\.m2\repository\com\ktds\KtdsSchema\1.0\KtdsSchema-1.0.jar</systemPath>
+>>>>>>> 29272d5803d540ffcd9bc57c62fac65ef0c49ac7
 		</dependency>
 
 		<!-- JSTL Libraries -->
