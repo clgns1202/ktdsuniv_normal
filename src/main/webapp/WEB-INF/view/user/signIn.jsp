@@ -8,12 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-추가
-	<form id="addProjectForm" method="post" action="<c:url value="/project/doAddProject"/>">
-		<input type="text" name="projectName" /></br>
-		<textarea rows="20px;" cols="20px;" name="projectInfo"></textarea>
-		<input type="submit" value="추가하기"/>
+	<form method="post" action="<c:url value="/doSignIn"/>">
+		아이디 : <input type="text" name="userId" id="userId" /><br/>
+		비밀번호 : <input type="password" name="userPassword" id="userPassword" /><br/>	
+		<input type="submit" value="로그인" /><br/>
 	</form>
-
 </body>
 </html>
