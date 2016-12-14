@@ -6,6 +6,8 @@ public interface UserBiz {
 	
 	public void signUp(UsersSchema user);
 
+
+
 	public UsersSchema signIn(UsersSchema user);
 
 }
