@@ -30,7 +30,7 @@
 	</c:forEach>
 </table>
 <c:if test="${sessionScope._USER_.id ne null}">
-	<input type="button" value="프로젝트 추가" onclick="location.href='<c:url value="/project/addProject"/>'" />
+	<input type="button" value="프로젝트 추가" onclick="location.href='<c:url value="/project/addProject/${lectureId}"/>'" />
 	</c:if>
 </body>
 </html>

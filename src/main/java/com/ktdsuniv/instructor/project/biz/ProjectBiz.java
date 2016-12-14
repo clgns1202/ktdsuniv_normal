@@ -9,7 +9,7 @@ public interface ProjectBiz {
 
 	public void addProject(ProjectsSchema project);
 
-	public List<ProjectsSchema> getAllProjects();
+	public List<ProjectsSchema> getAllProjects(String lectureId);
 
 	public ProjectsSchema getProjectBy(String id);
 

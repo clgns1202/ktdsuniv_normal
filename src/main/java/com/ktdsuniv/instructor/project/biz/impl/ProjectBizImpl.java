@@ -36,9 +36,9 @@ public class ProjectBizImpl implements ProjectBiz {
 	}
 
 	@Override
-	public List<ProjectsSchema> getAllProjects() {
+	public List<ProjectsSchema> getAllProjects(String lectureId) {
 	
-		return projectDao.getAllProjects();
+		return projectDao.getAllProjects(lectureId);
 	}
 
 	@Override

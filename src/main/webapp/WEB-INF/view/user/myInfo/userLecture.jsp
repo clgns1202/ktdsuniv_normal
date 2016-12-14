@@ -8,9 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:forEach items="lectures" var="lecture" >
-	${lecture.lectureName}
-	
+	<c:forEach items="${lectures}" var="lecture" >
+	<a href="<c:url value="/project/${lecture.id}"/>"> ${lecture.lectureName}</a>
 	</c:forEach>
 </body>
 </html>

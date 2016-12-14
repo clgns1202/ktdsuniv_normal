@@ -32,29 +32,31 @@ public class ProjectController {
 	
 	
 	
-	@RequestMapping("/")
-	public ModelAndView viewProjectPage(){
+	@RequestMapping("/{lectureId}")
+	public ModelAndView viewProjectPage(@PathVariable String lectureId){
 		ModelAndView view = new ModelAndView();
 
-		List<ProjectsSchema> projects = projectService.getAllProjects();
+		List<ProjectsSchema> projects = projectService.getAllProjects(lectureId);
 		view.addObject("projects", projects);
+		view.addObject("lectureId",lectureId);
 		view.setViewName("/project/project");
 		return view;
 	}
-	@RequestMapping("/addProject")
-	public ModelAndView viewAddProjectPage(){
+	@RequestMapping("/addProject/{lectureId}")
+	public ModelAndView viewAddProjectPage(@PathVariable String lectureId){
 		ModelAndView view = new ModelAndView();
+		view.addObject("lectureId",lectureId);
 		view.setViewName("/project/addProject");
 		
 		//List<TeamsSchema> teams = projectService.getAllTeams();
 		
 		return view;
 	}
-	@RequestMapping("/doAddProject")
-	public String doAddProjectAction(ProjectsSchema project, HttpSession session){
-		projectService.addProject(project,session);
+	@RequestMapping("/doAddProject/{lectureId}")
+	public String doAddProjectAction(ProjectsSchema project, HttpSession session, @PathVariable String lectureId){
+		projectService.addProject(project,session, lectureId);
 		
-		return "redirect:/project/";
+		return "redirect:/project/{lectureId}";
 	}
 	@RequestMapping("/detailProject/{id}")
 	public ModelAndView viewDetialProjectPage(@PathVariable String id){

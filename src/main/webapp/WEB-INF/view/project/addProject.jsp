@@ -9,7 +9,8 @@
 </head>
 <body>
 
-	<form id="addProjectForm" method="post" action="<c:url value="/project/doAddProject"/>">
+	<form id="addProjectForm" method="post" action="<c:url value="/project/doAddProject/${lectureId}"/>">
+	<input type="hidden" value="${lectureId}" >
 		프로젝트명 : <input type="text" name="projectName" />
 		팀 : <select id="teamName" name="teamName">
 				<option value="01" selected="selected">팀 을 선택해 주세요</option>

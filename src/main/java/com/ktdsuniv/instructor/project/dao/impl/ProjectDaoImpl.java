@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import com.ktdsuniv.instructor.project.dao.ProjectDao;
 
 import common.support.mongo.MongoTemplateSupport;
+import lecture.schema.LecturesSchema;
 import project.schema.ProjectsSchema;
 
 public class ProjectDaoImpl extends MongoTemplateSupport implements ProjectDao {
@@ -26,8 +27,19 @@ public class ProjectDaoImpl extends MongoTemplateSupport implements ProjectDao {
 
 		
 		@Override
-		public List<ProjectsSchema> getAllProjects() {
-			return getMongo().findAll(ProjectsSchema.class);
+		public List<ProjectsSchema> getAllProjects(String lectureId) {
+			Criteria name = new Criteria("_id");
+			name.is(lectureId);
+			Query query = new Query(name);
+			LecturesSchema lecture = getMongo().findOne(query, LecturesSchema.class);
+			
+			
+			Criteria criteria = new Criteria("lecture.lectureName");
+			criteria.is(lecture.getLectureName());
+			
+			Query query2 = new Query(criteria);
+			
+			return getMongo().find(query2, ProjectsSchema.class, "projects");
 		}
 
 

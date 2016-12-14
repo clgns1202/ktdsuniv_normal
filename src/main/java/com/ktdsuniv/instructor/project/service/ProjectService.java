@@ -8,9 +8,9 @@ import project.schema.ProjectsSchema;
 
 public interface ProjectService {
 
-	public void addProject(ProjectsSchema project, HttpSession session);
+	public void addProject(ProjectsSchema project, HttpSession session, String lectureId);
 
-	public List<ProjectsSchema> getAllProjects();
+	public List<ProjectsSchema> getAllProjects(String lectureId);
 
 	public ProjectsSchema getProjectBy(String id);
 
