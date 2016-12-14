@@ -8,12 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-추가
-	<form id="addProjectForm" method="post" action="<c:url value="/project/doAddProject"/>">
-		<input type="text" name="projectName" /></br>
-		<textarea rows="20px;" cols="20px;" name="projectInfo"></textarea>
+수정
+<form id="addProjectForm" method="post" action="<c:url value="/project/doModifyProject/${projectVO.id}"/>">
+		<input type="text" name="projectName"  value="${projectVO.projectName}"/></br>
+		<textarea rows="20px;" cols="20px;" name="projectInfo">${projectVO.projectInfo} </textarea>
 		<input type="submit" value="추가하기"/>
 	</form>
-
 </body>
 </html>
