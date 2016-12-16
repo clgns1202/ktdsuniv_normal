@@ -4,18 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean	id="lectureService"
-			class="com.ktdsuniv.instructor.lecture.service.impl.LectureServiceImpl">
+			class="com.ktdsuniv.normalpage.lecture.service.impl.LectureServiceImpl">
 		<property name="lectureBiz" ref="lectureBiz"/>		
 		<property name="commonBiz" ref="commonBiz"/>
 	</bean>
 
 	<bean	id="lectureBiz"
-			class="com.ktdsuniv.instructor.lecture.biz.impl.LectureBizImpl">
+			class="com.ktdsuniv.normalpage.lecture.biz.impl.LectureBizImpl">
 		<property name="lectureDao" ref="lectureDao"/>		
 	</bean>
 	
 	<bean	id="lectureDao"
-			class="com.ktdsuniv.instructor.lecture.dao.impl.LectureDaoImpl">
+			class="com.ktdsuniv.normalpage.lecture.dao.impl.LectureDaoImpl">
 		<property name="mongoTemplate" ref="mongoTemplate"/>		
 	</bean>
 

@@ -34,37 +34,38 @@
 	</bean>
 
 	<bean	id="userController"
-			class="com.ktdsuniv.instructor.user.web.UserController">
-		<property name="userService" ref="userService"/>		
+			class="com.ktdsuniv.normalpage.user.web.UserController">
+		<property name="userService" ref="userService"/>
+		<property name="lectureService" ref="lectureService"/>		
 	</bean>
 
 	<bean	id="boardController"
-			class="com.ktdsuniv.instructor.board.web.BoardController">
+			class="com.ktdsuniv.normalpage.board.web.BoardController">
 		<property name="boardService" ref="boardService"/>
 	</bean>
 	
 	<bean	id="replyController"
-			class="com.ktdsuniv.instructor.board.web.ReplyController">
+			class="com.ktdsuniv.normalpage.board.web.ReplyController">
 		<property name="replyService" ref="replyService"/>		
 	</bean>
 	
 	<bean	id="projectController"
-			class="com.ktdsuniv.instructor.project.web.ProjectController">
+			class="com.ktdsuniv.normalpage.project.web.ProjectController">
 		<property name="projectService" ref="projectService"/>		
 	</bean>
 
 	<bean	id="lectureController"
-			class="com.ktdsuniv.instructor.lecture.web.LectureController">
+			class="com.ktdsuniv.normalpage.lecture.web.LectureController">
 		<property name="lectureService" ref="lectureService"/>		
 	</bean>
 
 	<bean	id="roomController"
-			class="com.ktdsuniv.instructor.room.web.RoomController">
+			class="com.ktdsuniv.normalpage.room.web.RoomController">
 		<property name="roomService" ref="roomService"/>		
 	</bean>
 	
 	<bean	id="seatController"
-			class="com.ktdsuniv.instructor.room.web.SeatController">
+			class="com.ktdsuniv.normalpage.room.web.SeatController">
 		<property name="seatService" ref="seatService"/>		
 	</bean>
 

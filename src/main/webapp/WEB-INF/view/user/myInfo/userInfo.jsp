@@ -17,12 +17,11 @@
 					휴대전화	: ${user.phoneNumber}<br/>
 					주소 : ${user.address}<br/>
 					가입일 : ${user.createdDate}<br/>
-					
+					수강중 강의목록<br/>
 						<c:forEach items="${lectures}" var="lecture">
-					나의강의 : <a href="/user/myTestInfo/${lecture.id}" >${lecture.lectureName}</a> <br/>
+					 <a href="/user/myLectureInfo/${lecture.id}" >${lecture.lectureName}</a> <br/>
 						</c:forEach>
 					
-					나의 강의실 : 
 					<br/>
 					<input type="button" value="수정" onclick="location.href='<c:url value="/user/viewUserModifyPage"/>'"">
 		</div>
