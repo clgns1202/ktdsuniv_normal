@@ -42,7 +42,7 @@
 	
 	<div>
 	
-		<div style="display:inline-block;">
+		<div>
 				<h3>회원정보<br/></h3>
 					<form method="post" action="<c:url value="/user/doUserInfoModify"/>">
 						<input type="hidden" name="id" value="${user.id}">
@@ -51,16 +51,12 @@
 						주소:<input type="text" name="address" value="${user.address}"><br/>
 						<input type="submit" value="수정하기">
 					</form>
-					<input type="button" value="회원탈퇴" onclick="location.href='<c:url value="/user/withDrawal"/>'">
 		</div>	
+		<input type="button" value="회원탈퇴" onclick="location.href='<c:url value="/user/withDrawal"/>'">
 		<input type="button" id="modifyPassword"value="비밀번호변경">
 		<input type="password" id="userPassword" placeholder="비밀번호를 입력하세요"/>
 		<input type="button" id="passwordConfirm" value="확인" />
-		<div style="display:inline-block;">
-			<a href="<c:url value="/user/userHistory"/>">
-					<h3>회원기록<br/></h3>
-				</a>
-		</div>		
+		
 				
 	</div>
 	<br/>

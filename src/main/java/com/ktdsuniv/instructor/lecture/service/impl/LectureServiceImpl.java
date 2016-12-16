@@ -1,5 +1,7 @@
 package com.ktdsuniv.instructor.lecture.service.impl;
 
+import java.util.List;
+
 import com.ktdsuniv.instructor.lecture.biz.LectureBiz;
 import com.ktdsuniv.instructor.lecture.service.LectureService;
 
@@ -17,6 +19,12 @@ public class LectureServiceImpl implements LectureService {
 	public LecturesSchema getLectureById(String string) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<LecturesSchema> getLecturesByUserId(String userId) {
+		// TODO Auto-generated method stub
+		return lectureBiz.getLecturesByUserId(userId);
 	}
 	
 }

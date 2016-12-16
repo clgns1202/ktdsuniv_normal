@@ -13,18 +13,14 @@
 	
 	<div>
 	
-		<div style="display:inline-block;">
+		<div>
 				<a href="<c:url value="/user/userInfo"/>">
 					<h3>회원정보<br/></h3>
 				</a>
 					유저성명 : ${user.userName}<br/>
 					<br/>
 		</div>
-		<div style="display:inline-block;">
-				<a href="<c:url value="/user/userHistory"/>">
-					<h3>회원기록<br/></h3>
-				</a>
-		</div>		
+		
 				
 	</div>
 	<br/>

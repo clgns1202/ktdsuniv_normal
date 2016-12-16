@@ -1,6 +1,7 @@
 package com.ktdsuniv.instructor.user.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +12,7 @@ import com.ktdsuniv.instructor.user.biz.UserBiz;
 import com.ktdsuniv.instructor.user.service.UserService;
 
 import common.constants.Session;
+import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 
 public class UserServiceImpl implements UserService {
@@ -53,6 +55,33 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean doModifyUserInfoAction(UsersSchema user) {
 		return userBiz.doModifyUserInfoAction(user);
+	}
+
+	@Override
+	public boolean userPasswordModify(UsersSchema user) {
+		return userBiz.userPasswordModify(user);
+	}
+
+	@Override
+	public boolean doDeleteUser(UsersSchema user) {
+		return userBiz.doDeleteUser(user);
+	}
+
+	@Override
+	public UsersSchema signInForAndroid(UsersSchema user, HttpSession session) {
+		UsersSchema getUser = userBiz.signIn(user);
+		logger.debug("안드로이드 로그인 정보"+getUser);
+		
+		if( getUser != null){
+			session.setAttribute(Session.USER, getUser);
+			return getUser;
+		}
+		return null;
+	}
+
+	@Override
+	public  List<LecturesSchema> findLectureNameByLectureId(UsersSchema user) {
+		return userBiz.findLectureNameByLectureId(user);
 	}
 
 

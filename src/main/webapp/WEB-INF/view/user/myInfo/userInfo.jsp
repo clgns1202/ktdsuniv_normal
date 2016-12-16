@@ -11,21 +11,22 @@
 	
 	<div>
 	
-		<div style="display:inline-block;">
+		<div>
 				<h3>회원정보<br/></h3>
 					유저성명 : ${user.userName}<br/>
 					휴대전화	: ${user.phoneNumber}<br/>
 					주소 : ${user.address}<br/>
 					가입일 : ${user.createdDate}<br/>
+					
+						<c:forEach items="${lectures}" var="lecture">
+					나의강의 : <a href="/user/myTestInfo/${lecture.id}" >${lecture.lectureName}</a> <br/>
+						</c:forEach>
+					
+					나의 강의실 : 
 					<br/>
 					<input type="button" value="수정" onclick="location.href='<c:url value="/user/viewUserModifyPage"/>'"">
 		</div>
-		<div style="display:inline-block;">
-				<a href="<c:url value="/user/userHistory"/>">
-					<h3>회원기록<br/></h3>
-				</a>
-		</div>		
-				
+	
 	</div>
 	<br/>
 	</hr>

@@ -1,5 +1,7 @@
 package com.ktdsuniv.instructor.user.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ktdsuniv.instructor.user.service.UserService;
 
 import common.constants.Session;
+import grades.schema.TestsSchema;
+import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 
 @Controller
@@ -72,6 +76,13 @@ public class UserController {
 		return "redirect:/main";
 		
 	}
+
+	@RequestMapping("/doSignInForAndroid")
+	@ResponseBody
+	public UsersSchema doSignInForAndroid(UsersSchema user, HttpSession session){
+		user = userService.signInForAndroid(user, session);
+		return user;
+	}
 	
 	@RequestMapping("/signOut")
 	public String doSignOutAction(HttpSession session){
@@ -92,9 +103,12 @@ public class UserController {
 	public ModelAndView viewUserInfoPage(HttpSession session){
 		
 		UsersSchema user = userService.getUserInfo(session);
+		List<LecturesSchema> lectures = userService.findLectureNameByLectureId(user);
+		logger.debug("=============== 유저정보" + user.getUserId());
 		ModelAndView view = new ModelAndView();
 		view.setViewName("/user/myInfo/userInfo");
 		view.addObject("user",user);
+		view.addObject("lectures",lectures);
 		return view;
 	}
 	
@@ -118,12 +132,42 @@ public class UserController {
 		UsersSchema user = (UsersSchema)session.getAttribute(Session.USER);
 		user.setUserPassword(userPassword);
 		boolean isSuccess = userService.signIn(user, session);
-		logger.debug("=================="+isSuccess);
 		return isSuccess;
 	}
 	
-
-
 	
+	@RequestMapping("/user/userPasswordModify")
+	@ResponseBody
+	public boolean doUserPasswordModify(@RequestParam String userPassword, HttpSession session){
+		UsersSchema user = (UsersSchema)session.getAttribute(Session.USER);
+		user.setUserPassword(userPassword);
+		boolean isSuccess = userService.userPasswordModify(user);
+		return isSuccess;
+	}
+
+	@RequestMapping("/user/withDrawal")
+	public String userWithdrawal(){
+		return "/user/myInfo/userWithdrawal";
+	}
 	
+	@RequestMapping("/user/doUserWithdrawal")
+	public String doUserWithDrawal(HttpSession session){
+		
+		UsersSchema user = (UsersSchema)session.getAttribute(Session.USER);
+		
+		boolean isSuccess = userService.doDeleteUser(user);
+		
+		if(isSuccess==true){
+			return "redirect:/signIn";			
+		}
+		else{
+			return "redirect:/user/withDrawal?errorCode=1";
+		}
+	}
+	
+	/*@RequestMapping("/user/myTestInfo/{lectureId}")
+	public ModelAndView viewTestInfo(@RequestParam String lectureId){
+		ModelAndView view = new ModelAndView();
+		view.set
+	}*/
 }
