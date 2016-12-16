@@ -17,7 +17,7 @@
 				alert("내용을 입력해주세요.");
 				return;
 			}
-			else if ( $("#subject").val() == "" ) {
+			else if ( $("#createdDate").val() == "" ) {
 				alert("날짜를 선택해주세요.");
 				return;
 			}
@@ -32,10 +32,12 @@
 </script>
 </head>
 <body>
-
+	
+	<h1>학습일지 작성</h1>
+	<hr>
 	<form id="minForm" name="minForm">
-		<input type="date" id="subject" name="subject" /> <br/>
-		<textarea id="content" name="content" placeholder="내용을 입력하세요." ></textarea> <br/>
+		<input type="date" id="createdDate" name="createdDate" /> <br/><br/>
+		<textarea style="width: 350px; height: 500px;" id="content" name="content" placeholder="내용을 입력하세요." ></textarea> <br/>
 		<input type="button" id="submitBtn" name="submitBtn" value="등록하기" />
 	</form>
 	

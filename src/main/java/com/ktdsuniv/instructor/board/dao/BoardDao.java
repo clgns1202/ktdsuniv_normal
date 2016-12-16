@@ -6,7 +6,7 @@ import board.schema.BoardsSchema;
 
 public interface BoardDao {
 
-	public int addDailyReport(BoardsSchema board);
+	public int addDailyReport(BoardsSchema board, String userId);
 
 
 

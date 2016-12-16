@@ -16,8 +16,12 @@ public class BoardBizImpl implements BoardBiz {
 	}
 
 	@Override
-	public boolean addDailyReport(BoardsSchema board) {
-		return boardDao.addDailyReport(board) > 0;
+	public boolean addDailyReport(BoardsSchema board, String userId) {
+		
+		return boardDao.addDailyReport(board, userId) > 0;
+		
 	}
+
+	
 	
 }

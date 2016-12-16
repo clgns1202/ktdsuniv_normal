@@ -35,4 +35,15 @@ public class BoardController {
 		
 	}
 	
+	@RequestMapping("/dailyReport/list")
+	public ModelAndView viewDailyReportsListPage() {
+		
+		
+		
+		ModelAndView view = new ModelAndView();
+		
+		view.setViewName("/dailyReport/detail");
+		return view;
+	}
+	
 }

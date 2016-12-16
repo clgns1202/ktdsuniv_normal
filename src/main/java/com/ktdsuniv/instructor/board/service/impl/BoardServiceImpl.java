@@ -6,6 +6,8 @@ import com.ktdsuniv.instructor.board.biz.BoardBiz;
 import com.ktdsuniv.instructor.board.service.BoardService;
 
 import board.schema.BoardsSchema;
+import common.constants.Session;
+import user.schema.UsersSchema;
 
 public class BoardServiceImpl implements BoardService {
 
@@ -17,7 +19,12 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean addDailyReport(BoardsSchema board, HttpSession session) {
-		return boardBiz.addDailyReport(board);
+		
+		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
+		String userId = user.getUserId();
+		
+		return boardBiz.addDailyReport(board, userId);
+		
 	}
 	
 }

@@ -10,9 +10,10 @@ import common.support.mongo.MongoTemplateSupport;
 public class BoardDaoImpl extends MongoTemplateSupport implements BoardDao {
 
 	@Override
-	public int addDailyReport(BoardsSchema board) {
-		getMongo().insert(board);
+	public int addDailyReport(BoardsSchema board, String userId) {
+		getMongo().insert(board, userId);
 		return 1;
 	}
+
 
 }

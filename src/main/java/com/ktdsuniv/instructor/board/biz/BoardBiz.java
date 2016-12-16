@@ -6,7 +6,7 @@ import board.schema.BoardsSchema;
 
 public interface BoardBiz {
 
-	public boolean addDailyReport(BoardsSchema board);
+	public boolean addDailyReport(BoardsSchema board, String userId);
 
 
 }
