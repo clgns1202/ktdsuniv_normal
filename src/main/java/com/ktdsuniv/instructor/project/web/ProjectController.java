@@ -14,6 +14,7 @@ import com.ktdsuniv.instructor.project.service.ProjectService;
 import com.ktdsuniv.instructor.user.service.UserService;
 
 import common.constants.Session;
+import lecture.schema.LecturesSchema;
 import project.schema.ProjectsSchema;
 import project.schema.TeamsSchema;
 import user.schema.UsersSchema;
@@ -46,7 +47,10 @@ public class ProjectController {
 	@RequestMapping("/addProject/{lectureId}")
 	public ModelAndView viewAddProjectPage(@PathVariable String lectureId){
 		ModelAndView view = new ModelAndView();
+		LecturesSchema lectures = projectService.getAllUserName(lectureId);
+		
 		view.addObject("lectureId",lectureId);
+		view.addObject("lectures",lectures);
 		view.setViewName("/project/addProject");
 		
 		//List<TeamsSchema> teams = projectService.getAllTeams();
@@ -76,7 +80,6 @@ public class ProjectController {
 		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
 		
 		ProjectsSchema project = projectService.getProjectBy(id);
-		
 		view.setViewName("/project/modifyProject");
 		if(user.getId().equals(project.getUser().getId())) {
 			view.addObject("projectVO", project);

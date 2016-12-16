@@ -90,6 +90,11 @@ public class ProjectServiceImpl implements ProjectService{
 		projectBiz.modifyProject(project);
 	}
 
+	@Override
+	public LecturesSchema getAllUserName(String lectureId) {
+		return projectBiz.getAllUserName(lectureId);
+	}
+
 	
 	
 }

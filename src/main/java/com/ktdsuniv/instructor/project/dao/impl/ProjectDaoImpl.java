@@ -66,15 +66,7 @@ public class ProjectDaoImpl extends MongoTemplateSupport implements ProjectDao {
 		Query query = new Query(criteria);
 
 		ProjectsSchema originalSchema = getMongo().findOne(query, ProjectsSchema.class, "projects");
-		logger.info("=======오리지날 프로젝트 이름======"+originalSchema.getProjectName());
-		
-		logger.info("=========================================" + project.getProjectName());
-		logger.info("=========================================" + project.getProjectInfo());
-		logger.info("=========================================" + project.getCreatedDate());
-		logger.info("=========================================" + project.getStartDate());
-		logger.info("=========================================" + project.getEndDate());
-		logger.info("=========================================" + project.getLecture().getId());
-		logger.info("=========================================" + project.getUser().getId());
+	
 		
 		originalSchema.setProjectName(project.getProjectName());
 		originalSchema.setProjectInfo(project.getProjectInfo());
@@ -87,6 +79,16 @@ public class ProjectDaoImpl extends MongoTemplateSupport implements ProjectDao {
 		
 		getMongo().save(originalSchema);
 
+	}
+
+
+	@Override
+	public LecturesSchema getAllUserName(String lectureId) {
+		Criteria criteria = new Criteria("_id");
+		criteria.is(lectureId);
+		Query query = new Query(criteria);
+
+		return getMongo().findOne(query, LecturesSchema.class);
 	}
 
 }

@@ -2,6 +2,7 @@ package com.ktdsuniv.instructor.project.biz;
 
 import java.util.List;
 
+import lecture.schema.LecturesSchema;
 import project.schema.ProjectsSchema;
 import user.schema.UsersSchema;
 
@@ -16,5 +17,7 @@ public interface ProjectBiz {
 	public boolean deleteProject(String id);
 
 	public void modifyProject(ProjectsSchema project);
+
+	public LecturesSchema getAllUserName(String lectureId);
 
 }

@@ -18,6 +18,12 @@
 				<option value="02">dd</option>
 				<option value="03">vv</option>
 			</select>
+		팀장 : <select id="teamBoss" name="teamBoss">
+				<option value="${projectVO.teamBoss}" selected="selected">${projectVO.teamBoss}</option>
+				<c:forEach items="${projectVO.lecture.user}" var="lecture">
+					<option value="${lecture.userName}">${lecture.userName}</option>
+			</c:forEach>
+		</select>
 		</br>
 		기간 : <input type="date" name="startDate" /> ~ <input type="date" name="endDate" /><br/>
 		개요 : <br/><textarea rows="20px;" cols="100px;" name="projectInfo">${projectVO.projectInfo}</textarea>

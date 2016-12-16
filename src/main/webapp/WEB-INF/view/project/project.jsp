@@ -24,7 +24,7 @@
 	<tr>
 		<td align=center><a href="<c:url value='/project/detailProject/${project.id}'/>">${project.projectName}</a></td>
 		<td align=center> 팀 이름</td>
-		<td align=center> ${project.user.userName}</td>
+		<td align=center> ${project.teamBoss}</td>
 		<td align=center> ${project.createdDate} </td>
 		<td align=center> ~ ${project.endDate}</td>
 		<tr><td><hr/></td></tr>

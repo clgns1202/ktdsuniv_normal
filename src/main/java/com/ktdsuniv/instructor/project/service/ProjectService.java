@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.PathVariable;
 
+import lecture.schema.LecturesSchema;
 import project.schema.ProjectsSchema;
 
 public interface ProjectService {
@@ -19,5 +20,7 @@ public interface ProjectService {
 	public boolean deleteProject(String id, HttpSession session);
 
 	public void modifyProject(ProjectsSchema project, String id, HttpSession session);
+
+	public LecturesSchema getAllUserName(String lectureId);
 
 }

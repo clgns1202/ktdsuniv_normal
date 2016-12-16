@@ -17,7 +17,14 @@
 				<option value="01" selected="selected">팀 을 선택해 주세요</option>
 				<option value="01" selected="selected">팀 을 선택해 주세요</option>
 			</select>
+		팀장 : <select id="teamBoss" name="teamBoss">
+			<option value="001" selected="selected">팀장 을 선택해 주세요</option>
+			<c:forEach items="${lectures.user}" var="lecture">
+				<option value="${lecture.userName}">${lecture.userName}</option>
+			</c:forEach>
+		</select>
 		</br>
+		
 		기간 : <input type="date" name="startDate" /> ~ <input type="date" name="endDate" /><br/>
 		개요 : <br/><textarea rows="20px;" cols="100px;" name="projectInfo"></textarea>
 		<input type="submit" value="추가하기"/>

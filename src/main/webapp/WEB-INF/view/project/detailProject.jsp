@@ -12,6 +12,7 @@
 	<form id="addModifyForm" method="post" action="<c:url value="/project/doDeleteProject/${projectVO.id}/${projectVO.lecture.id}"/>">
 		프로젝트 이름: ${projectVO.projectName}<br/>
 		팀명: 팀이름<br/>
+		팀장: ${projectVO.teamBoss}<br/>
 		기간: ${projectVO.startDate} ~ ${projectVO.endDate} <br/>
 		프로젝트 개요: <br/>
 		${projectVO.projectInfo}<br/>

@@ -13,6 +13,7 @@ import com.ktdsuniv.instructor.project.biz.ProjectBiz;
 import com.ktdsuniv.instructor.project.dao.ProjectDao;
 import com.ktdsuniv.instructor.project.dao.impl.ProjectDaoImpl;
 
+import lecture.schema.LecturesSchema;
 import project.schema.ProjectsSchema;
 import project.schema.TeamsSchema;
 import user.schema.UsersSchema;
@@ -67,6 +68,11 @@ public class ProjectBizImpl implements ProjectBiz {
 		project.setProjectInfo(message);
 		
 		projectDao.modifyProject(project);
+	}
+
+	@Override
+	public LecturesSchema getAllUserName(String lectureId) {
+		return projectDao.getAllUserName(lectureId);
 	}
 
 
