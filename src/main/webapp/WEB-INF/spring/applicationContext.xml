@@ -69,4 +69,9 @@
 		<property name="seatService" ref="seatService"/>		
 	</bean>
 
+	<bean	id="attendanceController"
+			class="com.ktdsuniv.normalpage.attendance.web.AttendanceController">
+		<property name="attendanceService" ref="attendanceService"></property>
+	</bean>
+
 </beans>

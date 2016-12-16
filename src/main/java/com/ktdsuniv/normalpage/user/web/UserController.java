@@ -84,12 +84,7 @@ public class UserController {
 		
 	}
 
-	@RequestMapping("/doSignInForAndroid")
-	@ResponseBody
-	public UsersSchema doSignInForAndroid(UsersSchema user, HttpSession session){
-		user = userService.signInForAndroid(user, session);
-		return user;
-	}
+
 	
 	@RequestMapping("/signOut")
 	public String doSignOutAction(HttpSession session){
