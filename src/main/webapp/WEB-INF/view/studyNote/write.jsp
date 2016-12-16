@@ -9,19 +9,20 @@
 <script type="text/javascript" src="<c:url value="/js/jquery-3.1.1.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/ckeditor/ckeditor.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/ckfinder.js"/>"></script>
-<script type="text/javascript">
 
-	//CKEDITOR.instances.contents.setData();
-</script> 
 </head>
+
 <body>
 	<h1>학습노트</h1>
-	<input type="text" name="subject" id="subject" placeholder=" 제목을 입력하세요" style="width:500px; height:25px;" /><br/><br/>
-	<textarea name="contents" id="contents" class="ckeditor" rows="10" cols="80"></textarea><br/>
-	<script type="text/javascript">
-		CKEDITOR.replace('contents');
-	</script>
-	<input type="button" name="backBtn" id="backBtn" value="목록으로" style="margin-right:20px;" />
-	<input type="submit" name="submitBtn" id="submitBtn" value="등록" style="float:right;" />
+	<form method="post" action="<c:url value="./doWrite" />">
+		<input type="text" name="subject" id="subject" placeholder=" 제목을 입력하세요" style="width:500px; height:25px;" /><br/><br/>
+		<textarea name="content" id="content" class="ckeditor" rows="10" cols="80"></textarea><br/>
+		<script type="text/javascript">
+			CKEDITOR.replace('content');
+			CKEDITOR.instances.content.setData();
+		</script>
+		<input type="button" name="backBtn" id="backBtn" value="목록으로" />
+		<input type="submit" name="submitBtn" id="submitBtn" value="등록" style="float:right;" />
+	</form>
 </body>
 </html>
