@@ -10,4 +10,5 @@ public interface ReplyDao {
 
 	public List<RepliesSchema> getAllReply(String boardId);
 
+	public RepliesSchema getReplyForModify(String replyId);
 }

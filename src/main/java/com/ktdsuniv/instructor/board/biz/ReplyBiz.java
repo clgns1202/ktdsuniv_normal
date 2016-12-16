@@ -10,4 +10,7 @@ public interface ReplyBiz {
 
 	public List<RepliesSchema> getAllReply(String boardId);
 
+	public RepliesSchema getReplyForModify(String replyId);
+
+
 }

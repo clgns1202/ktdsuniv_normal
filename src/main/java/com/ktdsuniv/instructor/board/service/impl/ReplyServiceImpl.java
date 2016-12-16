@@ -25,4 +25,14 @@ public class ReplyServiceImpl implements ReplyService {
 		return replyBiz.getAllReply(boardId);
 	}
 	
+	@Override
+	public RepliesSchema getReplyForModify(String replyId) {
+		RepliesSchema reply = new RepliesSchema();
+		String comment = reply.getComment();
+		comment.replaceAll("<br/>", "\n");
+		
+		reply.setComment(comment);
+		return replyBiz.getReplyForModify(replyId);
+	}
+	
 }

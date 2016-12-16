@@ -10,6 +10,7 @@ import com.ktdsuniv.instructor.board.dao.ReplyDao;
 
 import board.schema.RepliesSchema;
 import common.support.mongo.MongoTemplateSupport;
+import common.util.DateUtil;
 
 public class ReplyDaoImpl extends MongoTemplateSupport implements ReplyDao {
 
@@ -38,6 +39,23 @@ public class ReplyDaoImpl extends MongoTemplateSupport implements ReplyDao {
 		Query query = new Query(criteria);
 		
 		return getMongo().find(query, RepliesSchema.class);
+	}
+	
+	@Override
+	public RepliesSchema getReplyForModify(String replyId) {
+		RepliesSchema reply = new RepliesSchema();
+		reply.setId(replyId);
+		
+		Criteria criteria = new Criteria("replyId");
+		criteria.is(replyId);
+		
+		Query query = new Query(criteria);
+		
+		Update update = new Update();
+		update.set("reply", reply);
+		getMongo().updateFirst(query, update, "repies");
+		
+		return getMongo().findOne(query, RepliesSchema.class, "replies");
 	}
 
 }

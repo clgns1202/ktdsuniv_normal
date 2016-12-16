@@ -25,4 +25,8 @@ public class ReplyBizImpl implements ReplyBiz {
 		return replyDao.getAllReply(boardId);
 	}
 	
+	@Override
+	public RepliesSchema getReplyForModify(String replyId) {
+		return replyDao.getReplyForModify(replyId);
+	}
 }

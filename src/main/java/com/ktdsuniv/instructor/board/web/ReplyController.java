@@ -5,9 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ktdsuniv.instructor.board.service.ReplyService;
 
@@ -42,5 +44,19 @@ public class ReplyController {
 		return replies;
 	}
 	
+	@RequestMapping("/modifyReply/{replyId}")
+	@ResponseBody
+	public List<RepliesSchema> modifyReply(@PathVariable String replyId, RepliesSchema reply) {
+		reply.setId(replyId);
+		reply = replyService.getReplyForModify(replyId);
+		
+		return getAllReply(reply.getBoard().getId());
+	}
+	
+	@RequestMapping("/deleteReply/{replyId}")
+	@ResponseBody
+	public List<RepliesSchema> deleteReply(@PathVariable String replyId) {
+		
+	}
 	
 }
