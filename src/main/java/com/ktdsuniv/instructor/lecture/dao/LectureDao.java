@@ -4,8 +4,13 @@ import java.util.List;
 
 import lecture.schema.LecturesSchema;
 
+
+import user.schema.UsersSchema;
+
 public interface LectureDao {
 
-	List<LecturesSchema> getLecturesByUserId(String userId);
+	public int doApplyLecture(String lectureId, UsersSchema users);
+
+	public int doApplyCancleLecture(String lectureId, UsersSchema users);
 
 }

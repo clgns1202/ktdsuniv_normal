@@ -98,6 +98,7 @@ public class UserController {
 		view.addObject("user",user);
 		return view;
 	}
+
 	
 	@RequestMapping("/user/userInfo")
 	public ModelAndView viewUserInfoPage(HttpSession session){

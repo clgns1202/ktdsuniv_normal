@@ -1,11 +1,11 @@
 package com.ktdsuniv.instructor.lecture.biz;
 
-import java.util.List;
-
-import lecture.schema.LecturesSchema;
+import user.schema.UsersSchema;
 
 public interface LectureBiz {
 
-	List<LecturesSchema> getLecturesByUserId(String userId);
+	public boolean doApplyLecture(String lectureId, UsersSchema users);
+
+	public boolean doApplyCancleLecture(String lectureId, UsersSchema users);
 
 }
