@@ -12,5 +12,7 @@ public interface ReplyBiz {
 
 	public RepliesSchema getReplyForModify(String replyId);
 
+	public boolean deleteReply(String replyId);
+
 
 }

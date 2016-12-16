@@ -2,6 +2,8 @@ package com.ktdsuniv.instructor.board.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.ktdsuniv.instructor.board.biz.ReplyBiz;
 import com.ktdsuniv.instructor.board.service.ReplyService;
 
@@ -33,6 +35,11 @@ public class ReplyServiceImpl implements ReplyService {
 		
 		reply.setComment(comment);
 		return replyBiz.getReplyForModify(replyId);
+	}
+
+	@Override
+	public boolean deleteReply(String replyId, HttpSession session) {
+		return replyBiz.deleteReply(replyId);
 	}
 	
 }

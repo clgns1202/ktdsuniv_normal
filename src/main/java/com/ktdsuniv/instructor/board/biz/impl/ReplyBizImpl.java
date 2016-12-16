@@ -29,4 +29,9 @@ public class ReplyBizImpl implements ReplyBiz {
 	public RepliesSchema getReplyForModify(String replyId) {
 		return replyDao.getReplyForModify(replyId);
 	}
+	
+	@Override
+	public boolean deleteReply(String replyId) {
+		return replyDao.deleteReply(replyId) > 0;
+	}
 }
