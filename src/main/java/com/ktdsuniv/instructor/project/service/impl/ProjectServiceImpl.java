@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ktdsuniv.instructor.project.biz.ProjectBiz;
 import com.ktdsuniv.instructor.project.service.ProjectService;
@@ -79,8 +80,13 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public void modifyProject(ProjectsSchema project) {
+	public void modifyProject(ProjectsSchema project, String id, HttpSession session) {
 		project.setCreatedDate(new Date());
+		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
+		project.setUser(user);
+		LecturesSchema lecture = commonBiz.getMongoById("_id", id, LecturesSchema.class);
+		project.setLecture(lecture);
+		
 		projectBiz.modifyProject(project);
 	}
 

@@ -6,9 +6,12 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ktdsuniv.instructor.project.biz.ProjectBiz;
 import com.ktdsuniv.instructor.project.dao.ProjectDao;
+import com.ktdsuniv.instructor.project.dao.impl.ProjectDaoImpl;
 
 import project.schema.ProjectsSchema;
 import project.schema.TeamsSchema;
@@ -16,6 +19,7 @@ import user.schema.UsersSchema;
 
 public class ProjectBizImpl implements ProjectBiz {
 
+	private Logger logger = LoggerFactory.getLogger(ProjectBizImpl.class);
 	private ProjectDao projectDao;
 	
 	public void setProjectDao(ProjectDao projectDao) {
@@ -53,6 +57,15 @@ public class ProjectBizImpl implements ProjectBiz {
 
 	@Override
 	public void modifyProject(ProjectsSchema project) {
+
+
+		
+		
+		String message = project.getProjectInfo();
+		message = message.replaceAll("\n", "<br/>");
+		message = message.replaceAll("\n", "");
+		project.setProjectInfo(message);
+		
 		projectDao.modifyProject(project);
 	}
 

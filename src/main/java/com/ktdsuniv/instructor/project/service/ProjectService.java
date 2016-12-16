@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 import project.schema.ProjectsSchema;
 
 public interface ProjectService {
@@ -16,6 +18,6 @@ public interface ProjectService {
 
 	public boolean deleteProject(String id, HttpSession session);
 
-	public void modifyProject(ProjectsSchema project);
+	public void modifyProject(ProjectsSchema project, String id, HttpSession session);
 
 }

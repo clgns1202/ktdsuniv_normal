@@ -22,6 +22,7 @@ import user.schema.UsersSchema;
 @RequestMapping("/project")
 public class ProjectController {
 
+	
 	private ProjectService projectService;
 	private LectureService lectureService;
 	private UserService userService;
@@ -84,19 +85,20 @@ public class ProjectController {
 		return view;
 	}
 	@RequestMapping("/doModifyProject/{id}")
-	public String doModifyProjectAction(ProjectsSchema project){
+	public String doModifyProjectAction(ProjectsSchema project, @PathVariable String id, HttpSession session){
 		
-		projectService.modifyProject(project);
+		projectService.modifyProject(project, id, session);
 		
-		return "redirect:/project/";
+		return "redirect:/project/{id}";
 	}
-	@RequestMapping("/doDeleteProject/{id}")
-	public String doAddProjectAction(@PathVariable String id, HttpSession session){
+	@RequestMapping("/doDeleteProject/{id}/{lectureId}")
+	public String doAddProjectAction(@PathVariable String id, HttpSession session, @PathVariable String lectureId){
+		
 		
 		projectService.deleteProject(id, session);
 		
 		
-		return "redirect:/project/";
+		return "redirect:/project/{lectureId}";
 	}
 	
 	

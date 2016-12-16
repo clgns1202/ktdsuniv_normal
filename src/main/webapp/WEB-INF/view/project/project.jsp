@@ -16,6 +16,7 @@
 		<th> 팀 이름</th>
 		<th> 팀장</th>
 		<th> 날짜</th>
+		<th> 기간</th>
 		<tr><td><hr/></td></tr>
 	</tr>
 		<tr></tr>
@@ -25,6 +26,7 @@
 		<td align=center> 팀 이름</td>
 		<td align=center> ${project.user.userName}</td>
 		<td align=center> ${project.createdDate} </td>
+		<td align=center> ~ ${project.endDate}</td>
 		<tr><td><hr/></td></tr>
  	</tr>
 	</c:forEach>
