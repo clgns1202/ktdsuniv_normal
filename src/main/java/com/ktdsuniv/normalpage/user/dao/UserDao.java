@@ -2,7 +2,6 @@ package com.ktdsuniv.normalpage.user.dao;
 
 import java.util.List;
 
-import grades.schema.TestsSchema;
 import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 

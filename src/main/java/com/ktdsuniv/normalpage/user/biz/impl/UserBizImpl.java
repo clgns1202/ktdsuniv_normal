@@ -10,7 +10,6 @@ import com.ktdsuniv.normalpage.user.biz.UserBiz;
 import com.ktdsuniv.normalpage.user.dao.UserDao;
 
 import common.util.SHA256Util;
-import grades.schema.TestsSchema;
 import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 

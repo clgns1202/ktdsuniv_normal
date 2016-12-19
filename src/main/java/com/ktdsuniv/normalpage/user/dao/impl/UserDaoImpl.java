@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import com.ktdsuniv.normalpage.user.dao.UserDao;
 
 import common.support.mongo.MongoTemplateSupport;
-import grades.schema.TestsSchema;
 import lecture.schema.LecturesSchema;
 import user.schema.UsersSchema;
 
