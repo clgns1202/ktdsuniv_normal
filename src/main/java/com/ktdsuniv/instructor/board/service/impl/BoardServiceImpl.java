@@ -1,5 +1,7 @@
 package com.ktdsuniv.instructor.board.service.impl;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import com.ktdsuniv.instructor.board.biz.BoardBiz;
@@ -18,13 +20,27 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public boolean addDailyReport(BoardsSchema board, HttpSession session) {
+	public boolean addDailyReport(BoardsSchema board) {
 		
-		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
-		String userId = user.getUserId();
 		
-		return boardBiz.addDailyReport(board, userId);
+		return boardBiz.addDailyReport(board);
 		
 	}
+
+	@Override
+	public List<BoardsSchema> dailyReportsList(UsersSchema user) {
+		return boardBiz.dailyReportsList(user);
+	}
+
+	@Override
+	public BoardsSchema dailyReportDetail(String boardId) {
+		return boardBiz.dailyReportDetail(boardId);
+	}
+
+	@Override
+	public boolean doDailyReportDelete(String boardId) {
+		return boardBiz.dailyReportDelete(boardId);
+	}
+
 	
 }

@@ -14,13 +14,19 @@
   
   <table>
   	<tr>
-  		<td>번호</td>
   		<td>날짜</td>
-  		<td></td>
-  		<td></td>
-  		<td></td>
+  		<td>제목</td>
   	</tr>
   </table>
   
+  <table>
+ 	 <c:forEach items="${boards}" var="board">
+	  	<tr>
+	  		<td>${board.dailyDate}</td>
+	  		<td><a href="<c:url value="/dailyReport/detail/${board.id}"/> ">${board.subject}</a></td>
+	  	
+	  	</tr>
+	  </c:forEach>
+  </table>
 </body>
 </html>
