@@ -83,6 +83,12 @@ public class UserServiceImpl implements UserService {
 	public  List<LecturesSchema> findLectureNameByLectureId(UsersSchema user) {
 		return userBiz.findLectureNameByLectureId(user);
 	}
+	
+	@Override
+	public List<LecturesSchema> getUserLecture(HttpSession session) {
+		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
+		return userBiz.getUserLecture(user);
+	}
 
 
 }

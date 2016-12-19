@@ -6,7 +6,8 @@
 
 	<bean	id="projectService"
 			class="com.ktdsuniv.normalpage.project.service.impl.ProjectServiceImpl">
-		<property name="projectBiz" ref="projectBiz"/>		
+		<property name="projectBiz" ref="projectBiz"/>
+		<property name="commonBiz" ref="commonBiz" />		
 	</bean>
 	
 	<bean	id="projectBiz"

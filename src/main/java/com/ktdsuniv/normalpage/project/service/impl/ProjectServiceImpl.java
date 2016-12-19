@@ -8,11 +8,14 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ktdsuniv.normalpage.project.biz.ProjectBiz;
 import com.ktdsuniv.normalpage.project.service.ProjectService;
 
 import common.constants.Session;
+import common.mongo.biz.CommonBiz;
+import lecture.schema.LecturesSchema;
 import project.schema.ProjectsSchema;
 import project.schema.TeamsSchema;
 import user.schema.UsersSchema;
@@ -20,17 +23,25 @@ import user.schema.UsersSchema;
 public class ProjectServiceImpl implements ProjectService{
 
 	private ProjectBiz projectBiz;
+	private CommonBiz commonBiz;
+	
+	public void setCommonBiz(CommonBiz commonBiz) {
+		this.commonBiz = commonBiz;
+	}
+
 	private Logger logger = LoggerFactory.getLogger(ProjectServiceImpl.class);
 	public void setProjectBiz(ProjectBiz projectBiz) {
 		this.projectBiz = projectBiz;
 	}
 
 	@Override
-	public void addProject(ProjectsSchema project, HttpSession session) {
+	public void addProject(ProjectsSchema project, HttpSession session, String lectureId) {
 		project.setCreatedDate(new Date());
 		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
 		project.setUser(user);
-		logger.debug("프로젝트유저정보"+user);
+		LecturesSchema lecture = commonBiz.getMongoById("_id", lectureId, LecturesSchema.class);
+		project.setLecture(lecture);
+		logger.debug("�봽濡쒖젥�듃�쑀���젙蹂�"+user);
 	/*	
 		TeamsSchema teams = new TeamsSchema();
 		List<UsersSchema> users = new ArrayList<UsersSchema>();
@@ -45,9 +56,9 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public List<ProjectsSchema> getAllProjects() {
+	public List<ProjectsSchema> getAllProjects(String lectureId) {
 		
-		return projectBiz.getAllProjects();
+		return projectBiz.getAllProjects(lectureId);
 	}
 
 	@Override
@@ -60,8 +71,8 @@ public class ProjectServiceImpl implements ProjectService{
 		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
 		
 		ProjectsSchema project = projectBiz.getProjectBy(id);
-		logger.info("세션 아이디" + user.getId());
-		logger.info("프로젝트 유저 아이디"+project.getUser().getId());
+		logger.info("�꽭�뀡 �븘�씠�뵒" + user.getId());
+		logger.info("�봽濡쒖젥�듃 �쑀�� �븘�씠�뵒"+project.getUser().getId());
 		if(user.getId().equals(project.getUser().getId())) {
 			return projectBiz.deleteProject(id);
 		}
@@ -69,9 +80,19 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public void modifyProject(ProjectsSchema project) {
+	public void modifyProject(ProjectsSchema project, String id, HttpSession session) {
 		project.setCreatedDate(new Date());
+		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
+		project.setUser(user);
+		LecturesSchema lecture = commonBiz.getMongoById("_id", id, LecturesSchema.class);
+		project.setLecture(lecture);
+		
 		projectBiz.modifyProject(project);
+	}
+
+	@Override
+	public LecturesSchema getAllUserName(String lectureId) {
+		return projectBiz.getAllUserName(lectureId);
 	}
 
 	

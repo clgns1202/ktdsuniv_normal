@@ -16,6 +16,7 @@
 		<th> 팀 이름</th>
 		<th> 팀장</th>
 		<th> 날짜</th>
+		<th> 기간</th>
 		<tr><td><hr/></td></tr>
 	</tr>
 		<tr></tr>
@@ -23,14 +24,15 @@
 	<tr>
 		<td align=center><a href="<c:url value='/project/detailProject/${project.id}'/>">${project.projectName}</a></td>
 		<td align=center> 팀 이름</td>
-		<td align=center> ${project.user.userName}</td>
+		<td align=center> ${project.teamBoss}</td>
 		<td align=center> ${project.createdDate} </td>
+		<td align=center> ~ ${project.endDate}</td>
 		<tr><td><hr/></td></tr>
  	</tr>
 	</c:forEach>
 </table>
 <c:if test="${sessionScope._USER_.id ne null}">
-	<input type="button" value="프로젝트 추가" onclick="location.href='<c:url value="/project/addProject"/>'" />
+	<input type="button" value="프로젝트 추가" onclick="location.href='<c:url value="/project/addProject/${lectureId}"/>'" />
 	</c:if>
 </body>
 </html>

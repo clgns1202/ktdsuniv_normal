@@ -14,13 +14,16 @@ import com.ktdsuniv.normalpage.project.service.ProjectService;
 import com.ktdsuniv.normalpage.user.service.UserService;
 
 import common.constants.Session;
+import lecture.schema.LecturesSchema;
 import project.schema.ProjectsSchema;
+import project.schema.TeamsSchema;
 import user.schema.UsersSchema;
 
 @Controller
 @RequestMapping("/project")
 public class ProjectController {
 
+	
 	private ProjectService projectService;
 	private LectureService lectureService;
 	private UserService userService;
@@ -31,27 +34,34 @@ public class ProjectController {
 	
 	
 	
-	@RequestMapping("/")
-	public ModelAndView viewProjectPage(){
+	@RequestMapping("/{lectureId}")
+	public ModelAndView viewProjectPage(@PathVariable String lectureId){
 		ModelAndView view = new ModelAndView();
 
-		List<ProjectsSchema> projects = projectService.getAllProjects();
+		List<ProjectsSchema> projects = projectService.getAllProjects(lectureId);
 		view.addObject("projects", projects);
+		view.addObject("lectureId",lectureId);
 		view.setViewName("/project/project");
 		return view;
 	}
-	@RequestMapping("/addProject")
-	public ModelAndView viewAddProjectPage(){
+	@RequestMapping("/addProject/{lectureId}")
+	public ModelAndView viewAddProjectPage(@PathVariable String lectureId){
 		ModelAndView view = new ModelAndView();
+		LecturesSchema lectures = projectService.getAllUserName(lectureId);
+		
+		view.addObject("lectureId",lectureId);
+		view.addObject("lectures",lectures);
 		view.setViewName("/project/addProject");
+		
+		//List<TeamsSchema> teams = projectService.getAllTeams();
 		
 		return view;
 	}
-	@RequestMapping("/doAddProject")
-	public String doAddProjectAction(ProjectsSchema project, HttpSession session){
-		projectService.addProject(project,session);
+	@RequestMapping("/doAddProject/{lectureId}")
+	public String doAddProjectAction(ProjectsSchema project, HttpSession session, @PathVariable String lectureId){
+		projectService.addProject(project,session, lectureId);
 		
-		return "redirect:/project/";
+		return "redirect:/project/{lectureId}";
 	}
 	@RequestMapping("/detailProject/{id}")
 	public ModelAndView viewDetialProjectPage(@PathVariable String id){
@@ -70,7 +80,6 @@ public class ProjectController {
 		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
 		
 		ProjectsSchema project = projectService.getProjectBy(id);
-		
 		view.setViewName("/project/modifyProject");
 		if(user.getId().equals(project.getUser().getId())) {
 			view.addObject("projectVO", project);
@@ -79,19 +88,20 @@ public class ProjectController {
 		return view;
 	}
 	@RequestMapping("/doModifyProject/{id}")
-	public String doModifyProjectAction(ProjectsSchema project){
+	public String doModifyProjectAction(ProjectsSchema project, @PathVariable String id, HttpSession session){
 		
-		projectService.modifyProject(project);
+		projectService.modifyProject(project, id, session);
 		
-		return "redirect:/project/";
+		return "redirect:/project/{id}";
 	}
-	@RequestMapping("/doDeleteProject/{id}")
-	public String doAddProjectAction(@PathVariable String id, HttpSession session){
+	@RequestMapping("/doDeleteProject/{id}/{lectureId}")
+	public String doAddProjectAction(@PathVariable String id, HttpSession session, @PathVariable String lectureId){
+		
 		
 		projectService.deleteProject(id, session);
 		
 		
-		return "redirect:/project/";
+		return "redirect:/project/{lectureId}";
 	}
 	
 	

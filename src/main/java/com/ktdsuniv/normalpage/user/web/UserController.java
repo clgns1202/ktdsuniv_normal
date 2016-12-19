@@ -100,7 +100,6 @@ public class UserController {
 		view.addObject("user",user);
 		return view;
 	}
-
 	
 	@RequestMapping("/user/userInfo")
 	public ModelAndView viewUserInfoPage(HttpSession session){
@@ -146,6 +145,17 @@ public class UserController {
 		user.setUserPassword(userPassword);
 		boolean isSuccess = userService.userPasswordModify(user);
 		return isSuccess;
+	}
+	
+	@RequestMapping("/user/userLecture")
+	public ModelAndView viewLecturePage(HttpSession session){
+		
+		List<LecturesSchema> lectures = userService.getUserLecture(session);
+		
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/user/myInfo/userLecture");
+		view.addObject("lectures",lectures);
+		return view;
 	}
 
 	@RequestMapping("/user/withDrawal")

@@ -6,15 +6,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 
-프로젝트 이름: ${projectVO.projectName}<br>
-프로젝트 내용: <br/>
-${projectVO.projectInfo}<br/>
+	<form id="addModifyForm" method="post" action="<c:url value="/project/doDeleteProject/${projectVO.id}/${projectVO.lecture.id}"/>">
+		프로젝트 이름: ${projectVO.projectName}<br/>
+		팀명: 팀이름<br/>
+		팀장: ${projectVO.teamBoss}<br/>
+		기간: ${projectVO.startDate} ~ ${projectVO.endDate} <br/>
+		프로젝트 개요: <br/>
+		${projectVO.projectInfo}<br/>
+	
+		<input type="hidden" name="lectureId" value="${projectVO.lecture.id}" />
+		<c:if test="${sessionScope._USER_.id eq projectVO.user.id}">
+			<input type="submit" value="삭제" />
+		</c:if>
+	</form>
 <c:if test="${sessionScope._USER_.id eq projectVO.user.id}">
-	<input type="button" value="삭제" onclick="location.href='<c:url value='/project/doDeleteProject/${projectVO.id}'/>'">
+	<%-- <input type="button" value="삭제" onclick="location.href='<c:url value='/project/doDeleteProject/${projectVO.id}'/>'"> --%>
 	<input type="button" value="수정" onclick="location.href='<c:url value='/project/modifyProject/${projectVO.id}'/>'">
 </c:if>
+
 </body>
 </html>

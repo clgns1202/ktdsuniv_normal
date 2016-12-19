@@ -1,0 +1,10 @@
+diff a/src/main/java/com/ktdsuniv/instructor/project/dao/impl/ProjectDaoImpl.java b/src/main/java/com/ktdsuniv/instructor/project/dao/impl/ProjectDaoImpl.java	(rejected hunks)
+@@ -25,7 +25,7 @@
+ 		getMongo().save(project);
+ 	}
+ 
+-		
++		//
+ 		@Override
+ 		public List<ProjectsSchema> getAllProjects(String lectureId) {
+ 			Criteria name = new Criteria("_id");

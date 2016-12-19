@@ -1,6 +1,5 @@
 package com.ktdsuniv.normalpage.user.biz.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -80,5 +79,10 @@ public class UserBizImpl implements UserBiz {
 	@Override
 	public List<LecturesSchema> findLectureNameByLectureId(UsersSchema user) {
 		return userDao.findLectureNameByLectureId(user);
+	}
+	
+	@Override
+	public List<LecturesSchema> getUserLecture(UsersSchema user) {
+		return userDao.getUserLecture(user);
 	}
 }

@@ -14,7 +14,10 @@
 		<config>src/main/webapp/WEB-INF/spring/lectureContext.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/roomContext.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/commonContext.xml</config>
+<<<<<<< HEAD
 		<config>src/main/webapp/WEB-INF/spring/attendanceContext.xml</config>
+=======
+>>>>>>> origin/후니2
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/mongoContext.xml</config>

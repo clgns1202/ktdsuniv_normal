@@ -1,6 +1,5 @@
 package com.ktdsuniv.normalpage.user.dao.impl;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -100,6 +99,13 @@ public class UserDaoImpl extends MongoTemplateSupport implements UserDao {
 			 Query query = new Query(criteria);
 			 List<LecturesSchema> lectures = getMongo().find(query, LecturesSchema.class, "lectures");
 		return lectures;
+	}
+	
+	public List<LecturesSchema> getUserLecture(UsersSchema user) {
+		Criteria criteria = new Criteria("user.userId");
+		criteria.is(user.getUserId());
+		Query query = new Query(criteria);
+		return getMongo().find(query, LecturesSchema.class, "lectures");
 	}
 	
 }

@@ -23,4 +23,5 @@ public interface UserDao {
 
 	public List<LecturesSchema> findLectureNameByLectureId(UsersSchema user);
 
+	public List<LecturesSchema> getUserLecture(UsersSchema user);
 }

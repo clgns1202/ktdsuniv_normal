@@ -27,4 +27,6 @@ public interface UserService {
 	public UsersSchema signInForAndroid(UsersSchema user, HttpSession session);
 
 	public  List<LecturesSchema> findLectureNameByLectureId(UsersSchema user);
+	
+	public List<LecturesSchema> getUserLecture(HttpSession session);
 }
