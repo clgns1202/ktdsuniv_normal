@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -169,13 +170,16 @@ public class UserController {
 	}
 	
 	@RequestMapping("/user/myLectureInfo/{lectureId}")
-	public ModelAndView myLectureInfo(@RequestParam String lectureId){
-		
+	public ModelAndView myLectureInfo(@PathVariable String lectureId,HttpSession session){
+		UsersSchema user = (UsersSchema)session.getAttribute(Session.USER);
 		ModelAndView view = new ModelAndView();
 		LecturesSchema lecture = lectureService.getDetailLecture(lectureId);
-		view.setViewName("/user/myLectureInfo");
+		view.setViewName("/user/myInfo/myLectureInfo");
 		view.addObject("lecture",lecture);
+		view.addObject("user",user);
 		return view;
-
+		
 	}
+	
+	
 }
