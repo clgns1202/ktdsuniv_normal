@@ -6,53 +6,83 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<link href="/css/fullcalendar.css" rel="stylesheet"/>
+<link href=".//fullcalendar.print.css" rel="stylesheet" media="print"/>
+<script type="text/javascript" src="<c:url value="/js/moment.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/fullcalendar.js"/>" charset="euc-kr"></script>
+<%-- 
 <link rel="stylesheet" type="text/css" href="/css/fullcalendar.css"/>
 <link rel="stylesheet" type="text/css" href="/css/fullcalendar.min.css"/>
 <link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css"/>
 <script type="text/javascript" src="<c:url value="/js/jquery-3.1.1.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/js/fullcalendar.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/jquery.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/moment.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/fullcalendar.min.js"/>"></script> --%>
+
 <script type="text/javascript">
-	$(function(){
-		calendarEvent();
-	});
-	function calendarEvent(eventData){
-		$("calendar").html("");
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYea();
-		var calendar = $('#calendar').fullCalendar({
-			header: {
-				left: "",
-				center: "title",
-				//right: "month,basicWeek,basicDay"
-				right: "today prev, next"
-			},
-			editable: true,
-			titleFormat: {
-				month: "yyyy년 MMMM",
-				week: "[yyyy] MMMM dd일{[yyyy] MMM dd일}",
-				day: "yyyy년 MMM d일 dddd"
-			},
-			allDayDefault: false,
-			defaultView: "month",
-			editable: false,
-			monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
-			monthNamesShort: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
-			dayNames: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"],
-			dayNamesShort: ["일","월","화","수","목","금","토"],
-			buttonText: {
-				today: "오늘",
-				month: "월별",
-				week: "주별",
-				day : "일별",
-			},
-			events : eventData,
-			timeFormat : "HH:mm",
-		});
-	}
+     $(document).ready(function() {
+        $("#calendar").fullCalendar({
+              defaultDate : "2016-05-12"
+            , editable : true
+            , eventLimit : true
+            , eventSources : [
+                {
+                    // 배경색이 빨간색인 이벤트
+                    events : [
+                        {
+                              title : "All Day Event"
+                            , start : "2016-05-03"
+                        },
+                        {
+                              title : "Long Event"
+                            , start : "2016-05-07"
+                            , end : "2016-05-10"
+                        }
+                    ]
+                    , color : "#FF0000"
+                    , textColor : "#FFFF00"
+                }
+                , {
+                    // 배경색이 파랑색인 이벤트
+                    events : [
+                        {
+                              title : "All Day Event"
+                            , start : "2016-05-27"
+                        },
+                        {
+                              title : "Long Event"
+                            , start : "2016-05-17"
+                            , end : "2016-05-19"
+                        }
+                    ]
+                    , color : "#0000FF"
+                    , textColor : "#FFFFFF"
+                }
+                , {
+                    // 배경색이 초록색인 이벤트
+                    events : [
+                        {
+                              title : "All Day Event"
+                            , start : "2016-05-21"
+                        },
+                        {
+                              title : "Long Event"
+                            , start : "2016-05-23"
+                            , end : "2016-05-26"
+                        }
+                    ]
+                    , color : "#00CC00"
+                    , textColor : "#000000"
+                }
+            ]
+        });
+    });  
+    
+    
+
+</script>
 </script>
 </head>
 <body>
