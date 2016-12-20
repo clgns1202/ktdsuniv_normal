@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\attendance\web\AttendanceController.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\attendance\biz\AttendanceBiz.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\room\service\impl\SeatServiceImpl.java
@@ -104,7 +103,6 @@ C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\b
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\room\biz\impl\RoomBizImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\user\dao\impl\UserDaoImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\board\web\ReplyController.java
-=======
 C:\Users\206-001\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\board\dao\BoardDao.java
 C:\Users\206-001\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\board\biz\BoardBiz.java
 C:\Users\206-001\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\room\biz\SeatBiz.java
@@ -154,4 +152,3 @@ C:\Users\206-001\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor
 C:\Users\206-001\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\board\dao\impl\BoardDaoImpl.java
 C:\Users\206-001\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\room\web\RoomController.java
 C:\Users\206-001\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\user\biz\impl\UserBizImpl.java
->>>>>>> origin/김민석-콜라보-수빈쓰

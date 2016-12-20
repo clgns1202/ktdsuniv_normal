@@ -10,4 +10,6 @@ public interface UserDao {
 
 	public String getSalt(UsersSchema user);
 
+	public int existUserId(String userId);
+
 }

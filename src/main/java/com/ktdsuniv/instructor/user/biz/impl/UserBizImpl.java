@@ -23,7 +23,7 @@ public class UserBizImpl implements UserBiz {
 	}
 	
 	@Override
-	public void signUp(UsersSchema user) {
+	public boolean signUp(UsersSchema user) {
 		String salt = SHA256Util.generateSalt();
 		user.setUserSalt(salt);
 		
@@ -31,7 +31,15 @@ public class UserBizImpl implements UserBiz {
 		password = SHA256Util.getEncrypt(password, salt);
 		
 		user.setUserPassword(password);
-		userDao.signUp(user);
+		if ( userDao.existUserId(user.getUserId()) == 0 ) {
+			userDao.signUp(user);
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+		
 	}
 
 	@Override

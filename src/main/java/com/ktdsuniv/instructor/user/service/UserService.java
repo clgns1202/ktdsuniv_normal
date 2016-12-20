@@ -11,7 +11,7 @@ public interface UserService {
 
 	public UsersSchema getUserInfo(HttpSession session);
 
-	public void signUp(UsersSchema user);
+	public boolean signUp(UsersSchema user);
 
 	public boolean signIn(UsersSchema user, HttpSession session);
 

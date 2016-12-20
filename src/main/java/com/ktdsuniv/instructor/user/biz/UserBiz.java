@@ -7,7 +7,7 @@ import user.schema.UsersSchema;
 
 public interface UserBiz {
 	
-	public void signUp(UsersSchema user);
+	public boolean signUp(UsersSchema user);
 
 	public UsersSchema signIn(UsersSchema user);
 
