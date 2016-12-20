@@ -19,9 +19,10 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void signUp(UsersSchema user) {
+	public boolean signUp(UsersSchema user) {
 		user.setBirthday(new Date(user.getBirthday().getTime() + (long) ( 1000 * 60 * 60 * 9 )));
-		userBiz.signUp(user);
+		user.setCreatedDate(new Date());
+		return userBiz.signUp(user);
 	}
 
 	@Override

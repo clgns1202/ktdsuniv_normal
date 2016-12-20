@@ -38,9 +38,12 @@ public class UserController {
 	@RequestMapping("/doSignUp")
 	public String doSignUpAction(UsersSchema user){
 		logger.debug(user.getUserId());
-		userService.signUp(user);
-		
-		return "redirect:/signIn";
+		boolean isSuccess = userService.signUp(user);
+		if ( isSuccess == true ){
+			return "redirect:/signIn";
+		}
+		return "redirect:/signUp?errorCode=1";
+	
 	}
 	
 	@RequestMapping("/signIn")
@@ -53,11 +56,15 @@ public class UserController {
 	@RequestMapping("/doSignIn")
 	public String doSignInAction(UsersSchema user, HttpSession session){
 		
-		userService.signIn(user, session);
-		return "redirect:/main";
+		boolean isSuccess = userService.signIn(user, session);
+		if ( isSuccess == true ) {
+			return "redirect:/main";
+		}
+		return "redirect:/signIn";
 	}
 	
 	@RequestMapping("/signOut")
+	
 	public String doSignOutAction(HttpSession session){
 		session.invalidate();
 		return "user/signIn";
