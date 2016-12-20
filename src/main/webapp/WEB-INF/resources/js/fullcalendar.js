@@ -9810,7 +9810,7 @@ function Toolbar(calendar, toolbarOptions) {
 
 							button = $( // type="button" so that it doesn't submit a form
 								'<button type="button" class="' + classes.join(' ') + '">' +
-									innerHtml +
+									innerHtml + 
 								'</button>'
 								)
 								.click(function(ev) {
