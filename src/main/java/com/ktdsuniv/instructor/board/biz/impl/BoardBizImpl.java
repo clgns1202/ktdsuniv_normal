@@ -2,8 +2,6 @@ package com.ktdsuniv.instructor.board.biz.impl;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import com.ktdsuniv.instructor.board.biz.BoardBiz;
 import com.ktdsuniv.instructor.board.dao.BoardDao;
 

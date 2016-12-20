@@ -18,6 +18,7 @@
 					mapping="/img/**" />
 	<mvc:resources 	location="/WEB-INF/resources/bootstrap/" 
 					mapping="/bootstrap/**" />				
+	<mvc:resources location="/WEB-INF/resources/html5up-striped/" mapping="/striped/**"/>
 					
 	<!-- ViewResolver 생성 -->
 	<bean   id="viewResolver"
