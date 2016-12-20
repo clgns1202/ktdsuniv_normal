@@ -16,4 +16,5 @@ public interface UserBiz {
 	public boolean doModifyUserInfoAction(UsersSchema user);
 
 	public List<LecturesSchema> getUserLecture(UsersSchema user);
+	
 }

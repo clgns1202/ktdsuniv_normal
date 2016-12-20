@@ -8,12 +8,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="<c:url value="/signUp"/>">회원가입</a>
-	
-	<form method="post" action="<c:url value="/doSignIn"/>">
-		아이디 : <input type="text" name="userId" id="userId" /><br/>
-		비밀번호 : <input type="password" name="userPassword" id="userPassword" /><br/>	
-		<input type="submit" value="로그인" /><br/>
-	</form>
+  
+  <h1>List</h1>
+  <hr>
+  
+  <table>
+  	<tr>
+  		<td>날짜</td>
+  		<td>제목</td>
+  	</tr>
+  </table>
+  
+  <table>
+ 	 <c:forEach items="${boards}" var="board">
+	  	<tr>
+	  		<td>${board.dailyDate}</td>
+	  		<td><a href="<c:url value="/dailyReport/detail/${board.id}"/> ">${board.subject}</a></td>
+	  	
+	  	</tr>
+	  </c:forEach>
+  </table>
 </body>
 </html>
