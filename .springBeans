@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
 	<pluginVersion><![CDATA[3.8.1.201607290748-RELEASE]]></pluginVersion>
@@ -14,10 +14,7 @@
 		<config>src/main/webapp/WEB-INF/spring/lectureContext.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/roomContext.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/commonContext.xml</config>
-<<<<<<< HEAD
 		<config>src/main/webapp/WEB-INF/spring/attendanceContext.xml</config>
-=======
->>>>>>> origin/후니2
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/mongoContext.xml</config>
