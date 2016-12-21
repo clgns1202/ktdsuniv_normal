@@ -4,8 +4,14 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+=======
+        <dependent-module archiveName="KtdsSchema.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/KtdsSchema/KtdsSchema">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+>>>>>>> 9ec39778e0a9a278c3630a465bb52421e5ecca06
         <property name="java-output-path" value="/Facebook/build/classes"/>
         <property name="context-root" value="NormalPage"/>
     </wb-module>
