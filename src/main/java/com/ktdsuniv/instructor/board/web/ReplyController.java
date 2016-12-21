@@ -32,7 +32,6 @@ public class ReplyController {
 		reply.getBoard().setId(boardId);
 		boolean isSuccess = replyService.addReply(reply);
 		return getAllReply(boardId);
-
 	}
 
 	@RequestMapping("/reply/{boardId}")
@@ -61,5 +60,5 @@ public class ReplyController {
 		boolean isSuccess = replyService.deleteReply(replyId,session);
 		return getAllReply(reply.getBoard().getId());
 	}
-	
+
 }
