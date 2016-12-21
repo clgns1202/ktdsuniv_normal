@@ -9,7 +9,13 @@
 <script type="text/javascript" src="<c:url value="/js/jquery-3.1.1.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/ckeditor/ckeditor.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/ckfinder.js"/>"></script>
-
+<script type="text/javascript">
+	$().ready(function(data){
+		$("#backBtn").click(function(){
+			location.href="<c:url value='/studyNote/list'/>";
+		})
+	});
+</script>
 </head>
 
 <body>

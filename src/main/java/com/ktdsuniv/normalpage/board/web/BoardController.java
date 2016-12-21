@@ -1,9 +1,12 @@
 package com.ktdsuniv.normalpage.board.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,12 +38,23 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
-	/**
-	 * 
-	 * @return
-	 
+
 	@RequestMapping("/studyNote/list")
-	public ModelAndView viewStudyNotelistPage() {
+	public ModelAndView viewStudyNotelistPage(HttpSession session) {
+		ModelAndView view = new ModelAndView();
+		List<BoardsSchema> studyNotes = boardService.getMyStudyNote(session);
+		view.setViewName("board/list");
+		view.addObject("studyNotes",studyNotes);
+		return view;
 	}
-	*/
+	
+	@RequestMapping("/studyNote/detail/{id}")
+	public ModelAndView viewDetailPage(@PathVariable String id){
+		ModelAndView view = new ModelAndView();
+		BoardsSchema studyNote = boardService.getIdBoardBy(id);
+		view.setViewName("board/detail");
+		view.addObject("studyNote", studyNote);
+		return view;
+	}
+	
 }

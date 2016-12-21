@@ -1,6 +1,7 @@
 package com.ktdsuniv.normalpage.board.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,6 +26,18 @@ public class BoardServiceImpl implements BoardService {
 		board.setUser(user);
 		board.setCreatedDate(new Date());
 		boardBiz.addStudyNote(board);
+	}
+	
+	@Override
+	public List<BoardsSchema> getMyStudyNote(HttpSession session) {
+		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
+		
+		return boardBiz.getMyStudyNote(user);
+	}
+
+	@Override
+	public BoardsSchema getIdBoardBy(String id) {
+		return boardBiz.getIdBoardBy(id);
 	}
 	
 }

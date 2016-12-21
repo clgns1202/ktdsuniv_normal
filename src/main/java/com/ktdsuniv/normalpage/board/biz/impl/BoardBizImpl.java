@@ -1,9 +1,12 @@
 package com.ktdsuniv.normalpage.board.biz.impl;
 
+import java.util.List;
+
 import com.ktdsuniv.normalpage.board.biz.BoardBiz;
 import com.ktdsuniv.normalpage.board.dao.BoardDao;
 
 import board.schema.BoardsSchema;
+import user.schema.UsersSchema;
 
 public class BoardBizImpl implements BoardBiz {
 
@@ -19,8 +22,19 @@ public class BoardBizImpl implements BoardBiz {
 		content = content.replaceAll("\n", "<br/>");
 		content = content.replaceAll("\n", "");
 		board.setContent(content);
-		
+		String category = "studyNote";
+		board.setCategory(category);
 		boardDao.addStudyNote(board);
+	}
+
+	@Override
+	public List<BoardsSchema> getMyStudyNote(UsersSchema user) {
+		return boardDao.getMyStudyNote(user);
+	}
+
+	@Override
+	public BoardsSchema getIdBoardBy(String id) {
+		return boardDao.getIdBoardBy(id);
 	}
 	
 }
