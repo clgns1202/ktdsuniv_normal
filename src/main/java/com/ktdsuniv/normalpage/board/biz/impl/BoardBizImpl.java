@@ -6,6 +6,7 @@ import com.ktdsuniv.normalpage.board.biz.BoardBiz;
 import com.ktdsuniv.normalpage.board.dao.BoardDao;
 
 import board.schema.BoardsSchema;
+import category.schema.CategoriesSchema;
 import user.schema.UsersSchema;
 
 public class BoardBizImpl implements BoardBiz {
@@ -22,8 +23,6 @@ public class BoardBizImpl implements BoardBiz {
 		content = content.replaceAll("\n", "<br/>");
 		content = content.replaceAll("\n", "");
 		board.setContent(content);
-		String category = "studyNote";
-		board.setCategory(category);
 		boardDao.addStudyNote(board);
 	}
 
