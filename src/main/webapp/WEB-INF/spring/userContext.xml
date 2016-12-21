@@ -4,17 +4,17 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean	id="userService"
-			class="com.ktdsuniv.instructor.user.service.impl.UserServiceImpl">
+			class="com.ktdsuniv.normalpage.user.service.impl.UserServiceImpl">
 		<property name="userBiz" ref="userBiz"/>		
 	</bean>
 	
 	<bean	id="userBiz"
-			class="com.ktdsuniv.instructor.user.biz.impl.UserBizImpl">
+			class="com.ktdsuniv.normalpage.user.biz.impl.UserBizImpl">
 		<property name="userDao" ref="userDao"/>		
 	</bean>
 	
 	<bean	id="userDao"
-			class="com.ktdsuniv.instructor.user.dao.impl.UserDaoImpl">
+			class="com.ktdsuniv.normalpage.user.dao.impl.UserDaoImpl">
 			<property name="mongoTemplate" ref="mongoTemplate"></property>
 	</bean>
 

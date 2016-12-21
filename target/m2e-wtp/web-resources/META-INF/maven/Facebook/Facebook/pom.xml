@@ -37,8 +37,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+<<<<<<< HEAD
 
 	<dependency>
+=======
+		<dependency>
+>>>>>>> 21e4e7984a26d28351f31b91d858b65c304d1acb
 			<groupId>com.ktds</groupId>
 			<artifactId>KtdsSchema</artifactId>
 			<version>1.0</version>
