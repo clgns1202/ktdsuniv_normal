@@ -70,6 +70,14 @@ public class UserController {
 		return "redirect:/signIn";
 	}
 	
+	@RequestMapping("/doSignInForAndroid")
+	@ResponseBody
+	public UsersSchema doSignUpAction(UsersSchema user, HttpSession session){
+		UsersSchema userInfo = userService.signInForAndroid(user, session);
+		return userInfo;
+	}
+	
+	
 	@RequestMapping("/signIn")
 	public ModelAndView viewSignInpage(){
 		ModelAndView view = new ModelAndView();
