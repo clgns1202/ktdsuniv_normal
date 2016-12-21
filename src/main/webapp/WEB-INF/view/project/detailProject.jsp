@@ -82,9 +82,13 @@
      $(document).ready(function() {
     	 var startDate = $("#startDate").text();
     	 var endDate = $("#endDate").text();
+    	 var moomin = "";
     	 console.log(startDate);
+
         $("#calendar").fullCalendar({
-              defaultDate : "2016-12-11"
+              
+
+        	defaultDate : "2016-12-11"
             , editable : true
             , eventLimit : true
             , eventSources : [
@@ -110,13 +114,56 @@
                     , color : "#050099"
                     , textColor : "#0100FF"
                 }
+                 /* if(moomin != ""){
+                	  
+                        // 배경색이 파랑색인 이벤트
+                        events : [
+                            {
+                                  title : "dddd"
+                                , start : moomin
+                            }
+                        ]
+                        , color : "#050099"
+                        , textColor : "#0100FF"
+                    	
+                }  */
 
             ]
         });
         
-        $(".fc-day-top").on("click", function(){
-        	alert($(this).attr("data-date"));
-        });
+   	 $(".fc-day-top").on("click", function(){
+      	moomin = prompt("입력하세요");
+      	
+      	if(moomin != ""){
+      	 $("#calendar").fullCalendar({
+             
+
+         	defaultDate : "2016-11-11"
+             , editable : true
+             , eventLimit : true
+             , eventSources : [
+                 {
+                     // 배경색이 빨간색인 이벤트
+                     events : [
+                         {
+                               title : "sfsf"
+                             , start : moomin
+                         }
+                     ]
+                     , color : "#FF007F"
+                     , textColor : "#FF007F"
+                 }
+                 
+             ]
+         });
+      	};
+      	
+      	alert(moomin);
+      	
+      	//alert($(this).attr("data-date"));
+      });
+   	 
+
     });  
     
     
