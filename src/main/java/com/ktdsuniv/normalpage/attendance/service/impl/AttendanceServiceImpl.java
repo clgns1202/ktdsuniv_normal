@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import com.ktdsuniv.normalpage.attendance.biz.AttendanceBiz;
 import com.ktdsuniv.normalpage.attendance.service.AttendanceService;
+import com.ktdsuniv.normalpage.attendance.vo.CheckTime;
 
 import attendance.schema.AttendancesSchema;
 
@@ -22,13 +23,19 @@ public class AttendanceServiceImpl implements AttendanceService {
 	}
 
 	@Override
-	public boolean addAttendanceForAndroid(String userId) {			
-		return attendanceBiz.addAttendanceForAndroid(userId);
+	public boolean addAttendanceForAndroid(String userId, String lectureId) {			
+		return attendanceBiz.addAttendanceForAndroid(userId, lectureId);
 	}
 
 	@Override
-	public List<AttendancesSchema> getAttendanceListByUserId(String userId) {
+	public List<AttendancesSchema> getAttendanceListByUserIdLectureId(String userId, String lectureId) {
 		// TODO Auto-generated method stub
-		return attendanceBiz.getAttendanceListByUserId(userId);
+		return attendanceBiz.getAttendanceListByUserIdLectureId(userId, lectureId);
+	}
+
+	@Override
+	public CheckTime getResultForUser(String userId, String lectureId) {
+		// TODO Auto-generated method stub
+		return attendanceBiz.getResultForUser(userId, lectureId);
 	}
 }

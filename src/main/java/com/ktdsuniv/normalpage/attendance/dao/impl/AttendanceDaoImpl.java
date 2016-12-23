@@ -34,14 +34,30 @@ public class AttendanceDaoImpl extends MongoTemplateSupport implements Attendanc
 
 
 	@Override
-	public List<AttendancesSchema> getAttendanceListByNowDate(String userId, String nowDate) {
+	public List<AttendancesSchema> getAttendanceListByNowDate(String userId, String lectureId, String nowDate) {
 		// TODO Auto-generated method stub
-		Criteria criteria = new Criteria("usersSchema.userId");
+		Criteria criteria = new Criteria("userId");
 		criteria.is(userId);
 		criteria = criteria.and("nowDate");
 		criteria.is(nowDate);
+		criteria = criteria.and("lectureId");
+		criteria.is(lectureId);
 		
 		Query query = new Query(criteria);
+		return getMongo().find(query, AttendancesSchema.class, "attendances");
+	}
+
+
+	@Override
+	public List<AttendancesSchema> getAttendanceListByUserIdLectureId(String userId, String lectureId) {
+		// TODO Auto-generated method stub
+		Criteria criteria = new Criteria("userId");
+		criteria.is(userId);
+		criteria = criteria.and("lectureId");
+		criteria.is(lectureId);
+		
+		Query query = new Query(criteria);
+		
 		return getMongo().find(query, AttendancesSchema.class, "attendances");
 	}
 	

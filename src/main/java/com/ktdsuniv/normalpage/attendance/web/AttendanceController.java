@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ktdsuniv.normalpage.attendance.service.AttendanceService;
+import com.ktdsuniv.normalpage.attendance.vo.CheckTime;
 
 import attendance.schema.AttendancesSchema;
 
@@ -23,15 +24,21 @@ public class AttendanceController {
 	
 	@RequestMapping("/addAttendanceForAndroid")
 	@ResponseBody
-	public boolean doCheckAttendancePage(){
+	public boolean doCheckAttendancePage(String userId, String lectureId){
 		
-		return attendanceService.addAttendanceForAndroid("55");
+		return attendanceService.addAttendanceForAndroid(userId, lectureId);
 	}
 	
 	@RequestMapping("/getAttendanceList")
 	@ResponseBody
-	public List<AttendancesSchema> getAttendanceListPage(String userId){
-		userId = "55";
-		return attendanceService.getAttendanceListByUserId(userId);
+	public List<AttendancesSchema> getAttendanceListPage(String userId, String lectureId){
+		return attendanceService.getAttendanceListByUserIdLectureId(userId, lectureId);
 	}
+	
+	@RequestMapping("/getResultForUser")
+	@ResponseBody
+	public CheckTime getResultForUserPage(String userId, String lectureId){
+		return attendanceService.getResultForUser(userId, lectureId);
+	}
+	
 }
