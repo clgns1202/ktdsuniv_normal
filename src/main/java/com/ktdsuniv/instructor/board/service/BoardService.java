@@ -2,6 +2,8 @@ package com.ktdsuniv.instructor.board.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import board.schema.BoardsSchema;
 import user.schema.UsersSchema;
 
@@ -14,5 +16,7 @@ public interface BoardService {
 	public BoardsSchema dailyReportDetail(String boardId);
 
 	public boolean doDailyReportDelete(String boardId);
+
+	public void addStudyNote(BoardsSchema board, HttpSession session);
 
 }

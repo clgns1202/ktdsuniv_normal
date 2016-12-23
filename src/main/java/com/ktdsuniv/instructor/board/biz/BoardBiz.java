@@ -15,5 +15,6 @@ public interface BoardBiz {
 
 	public boolean dailyReportDelete(String boardId);
 
+	public void addStudyNote(BoardsSchema board);
 
 }

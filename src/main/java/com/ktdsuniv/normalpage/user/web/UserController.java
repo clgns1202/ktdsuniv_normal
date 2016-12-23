@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -66,7 +66,15 @@ public class UserController {
 
 		return "redirect:/signIn";
 	}
-
+	
+	@RequestMapping("/doSignInForAndroid")
+	@ResponseBody
+	public UsersSchema doSignUpAction(UsersSchema user, HttpSession session){
+		UsersSchema userInfo = userService.signInForAndroid(user, session);
+		return userInfo;
+	}
+	
+	
 	@RequestMapping("/signIn")
 	public ModelAndView viewSignInpage() {
 		ModelAndView view = new ModelAndView();
@@ -184,13 +192,16 @@ public class UserController {
 	}
 
 	@RequestMapping("/user/myLectureInfo/{lectureId}")
-	public ModelAndView myLectureInfo(@RequestParam String lectureId) {
-
+	public ModelAndView myLectureInfo(@PathVariable String lectureId,HttpSession session){
+		UsersSchema user = (UsersSchema)session.getAttribute(Session.USER);
 		ModelAndView view = new ModelAndView();
 		LecturesSchema lecture = lectureService.getDetailLecture(lectureId);
-		view.setViewName("/myInfo/myLectureInfo");
-		view.addObject("lecture", lecture);
+		view.setViewName("/user/myInfo/myLectureInfo");
+		view.addObject("lecture",lecture);
+		view.addObject("user",user);
 		return view;
-
+		
 	}
+	
+	
 }

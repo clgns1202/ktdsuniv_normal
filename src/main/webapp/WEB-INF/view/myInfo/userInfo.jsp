@@ -14,7 +14,7 @@
 					가입일 : ${user.createdDate}<br/>
 					수강중 강의목록<br/>
 						<c:forEach items="${lectures}" var="lecture">
-					 <a href="/user/myLectureInfo/${lecture.id}" >${lecture.lectureName}</a> <br/>
+					 <a href="<c:url value="/user/myLectureInfo/${lecture.id}"/>" >${lecture.lectureName}</a> <br/>
 						</c:forEach>
 					
 					<br/>

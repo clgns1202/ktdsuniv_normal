@@ -50,5 +50,14 @@ public class LectureDaoImpl extends MongoTemplateSupport implements LectureDao {
 		getMongo().updateFirst(query, update, "lectures");
 		return 1;
 	}
+
+	@Override
+	public LecturesSchema getLectures(String lectureId) {
+		Criteria criteria = new Criteria("id");
+		criteria.is(lectureId);
+		Query query = new Query(criteria);
+		
+		return getMongo().findOne(query, LecturesSchema.class,"lectures");
+	}
 	
 }

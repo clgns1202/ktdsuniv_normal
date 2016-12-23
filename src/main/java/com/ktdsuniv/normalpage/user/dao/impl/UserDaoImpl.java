@@ -48,10 +48,11 @@ public class UserDaoImpl extends MongoTemplateSupport implements UserDao {
 
 	@Override
 	public UsersSchema getUserInfo(String userId) {
+		logger.debug("안녕하세요 이근재입니다." +userId);
 		Criteria criteria = new Criteria("userId");
 		criteria.is(userId);
 		Query query = new Query(criteria);
-		return getMongo().findOne(query, UsersSchema.class);
+		return getMongo().findOne(query, UsersSchema.class, "users");
 	}
 
 	@Override

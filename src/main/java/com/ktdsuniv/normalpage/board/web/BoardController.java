@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+<<<<<<< HEAD
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> f755904bd48e68ce7698a12ae3e8c32f83bd45c2
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,15 +19,20 @@ import board.schema.BoardsSchema;
 import common.constants.Session;
 import user.schema.UsersSchema;
 
+import board.schema.BoardsSchema;
+
 @Controller
+@RequestMapping("/board")
 public class BoardController {
 
+	@Autowired
 	private BoardService boardService;
 	
 	public void setBoardService(BoardService boardService) {
 		this.boardService = boardService;
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping("/dailyReport/addDailyReport")
 	public String addDailyReportsPage() {
 		return "dailyReport/addDailyReport";
@@ -71,4 +80,38 @@ public class BoardController {
 		boolean isSuccess = boardService.doDailyReportDelete(boardId);
 		return "redirect:/dailyReport/list";
 	}
+=======
+	@RequestMapping("/studyNote/write")
+	public ModelAndView viewStudyNoteWritePage(HttpSession session) {
+		ModelAndView view = new ModelAndView();
+		view.setViewName("studyNote/write");
+		return view;
+	}
+	
+	@RequestMapping("/studyNote/doWrite")
+	public String doWriteStudyNoteAction(BoardsSchema board, HttpSession session){
+		boardService.addStudyNote(board,session);
+		return "redirect:list";
+	}
+	
+
+	@RequestMapping("/studyNote/list")
+	public ModelAndView viewStudyNotelistPage(HttpSession session) {
+		ModelAndView view = new ModelAndView();
+		List<BoardsSchema> studyNotes = boardService.getMyStudyNote(session);
+		view.setViewName("board/list");
+		view.addObject("studyNotes",studyNotes);
+		return view;
+	}
+	
+	@RequestMapping("/studyNote/detail/{id}")
+	public ModelAndView viewDetailPage(@PathVariable String id){
+		ModelAndView view = new ModelAndView();
+		BoardsSchema studyNote = boardService.getIdBoardBy(id);
+		view.setViewName("board/detail");
+		view.addObject("studyNote", studyNote);
+		return view;
+	}
+	
+>>>>>>> f755904bd48e68ce7698a12ae3e8c32f83bd45c2
 }

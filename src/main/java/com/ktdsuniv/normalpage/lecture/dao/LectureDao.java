@@ -15,4 +15,6 @@ public interface LectureDao {
 
 	public List<LecturesSchema> getLecturesByUserId(String userId);
 
+	public LecturesSchema getLectures(String lectureId);
+
 }

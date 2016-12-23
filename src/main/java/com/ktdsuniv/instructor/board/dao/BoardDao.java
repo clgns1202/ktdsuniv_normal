@@ -16,5 +16,6 @@ public interface BoardDao {
 	public int dailyReportDelete(String boardId);
 
 
+	public void addStudyNote(BoardsSchema board);
 
 }

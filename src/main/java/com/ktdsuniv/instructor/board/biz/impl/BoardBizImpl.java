@@ -38,4 +38,10 @@ public class BoardBizImpl implements BoardBiz {
 		return boardDao.dailyReportDelete(boardId) > 0;
 	}
 
+	@Override
+	public void addStudyNote(BoardsSchema board) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

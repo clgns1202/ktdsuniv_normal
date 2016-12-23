@@ -23,6 +23,7 @@ C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\b
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\user\service\UserService.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\board\biz\impl\BoardBizImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\attendance\dao\impl\AttendanceDaoImpl.java
+C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\board\dao\BoardDao.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\user\biz\impl\UserBizImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\room\biz\impl\SeatBizImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\user\dao\UserDao.java
@@ -47,11 +48,13 @@ C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\a
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\board\dao\impl\BoardDaoImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\room\dao\impl\RoomDaoImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\project\dao\impl\ProjectDaoImpl.java
+C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\board\service\BoardService.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\lecture\service\impl\LectureServiceImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\room\service\impl\RoomServiceImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\project\service\ProjectService.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\room\web\SeatController.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\project\biz\impl\ProjectBizImpl.java
+C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\board\biz\BoardBiz.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\room\service\RoomService.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\normalpage\project\service\impl\ProjectServiceImpl.java
 C:\Users\owner\Documents\ktdsuniv_normal\src\main\java\com\ktdsuniv\instructor\board\dao\impl\ReplyDaoImpl.java
