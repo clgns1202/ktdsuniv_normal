@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public void signUp(UsersSchema user) {
-		user.setBirthday(new Date(user.getBirthday().getTime() + (long) ( 1000 * 60 * 60 * 9 )));
+		//user.setBirthday(new Date(user.getBirthday().getTime() + (long) ( 1000 * 60 * 60 * 9 )));
 		userBiz.signUp(user);
 	}
 

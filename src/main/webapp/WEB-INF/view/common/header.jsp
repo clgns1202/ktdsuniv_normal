@@ -27,11 +27,10 @@
 		
 		$("#"+menu[3]).parent().addClass("current");
 		
-		if("${sessionScope._USER_}" != ""){
+		/* if("${sessionScope._USER_}" != ""){
 			$.post("<c:url value="/user/lectureInfo"/>", function(data){
-				alert(data.id);
 			});
-		}
+		} */
 		
 	});
 </script>
@@ -54,9 +53,10 @@
 		<ul>
 			<li><a id="userInfo" href="<c:url value="/user/userInfo"/>">내 정보</a></li>
 			<li><a id="userLecture" href="<c:url value="/user/userLecture"/>">내 강의</a></li>
-			<li><a id="user" href="<c:url value="/user/list"/>">메모장</a></li>
-			<li><a id="instructor" href="<c:url value="/dailyReport/list"/>">일일 학습</a></li>
-			<li><a id="category" href="<c:url value="/category/categoryPage"/>">프로젝트 관리</a></li>
+			<li><a id="studyNote" href="<c:url value="/studyNote/list"/>">메모장</a></li>
+			<li><a id="dailyReport" href="<c:url value="/dailyReport/list"/>">일일 학습</a></li>
+			<li><a id="project" href="<c:url value="/project/5850e713ec4b0f0c70a564e6"/>">프로젝트 관리</a></li>
+			
 		</ul>
 		</nav>
 		<!-- class="current" -->

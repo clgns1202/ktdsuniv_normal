@@ -196,7 +196,7 @@ public class UserController {
 		UsersSchema user = (UsersSchema)session.getAttribute(Session.USER);
 		ModelAndView view = new ModelAndView();
 		LecturesSchema lecture = lectureService.getDetailLecture(lectureId);
-		view.setViewName("/user/myInfo/myLectureInfo");
+		view.setViewName("/myInfo/myLectureInfo");
 		view.addObject("lecture",lecture);
 		view.addObject("user",user);
 		return view;

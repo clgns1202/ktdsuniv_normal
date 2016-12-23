@@ -9,7 +9,7 @@
 	</bean>
 
 	<bean	id="boardBiz"
-			class="com.ktdsuniv.instructor.board.biz.impl.BoardBizImpl">
+			class="com.ktdsuniv.normalpage.board.biz.impl.BoardBizImpl">
 		<property name="boardDao" ref="boardDao"/>		
 	</bean>
 	

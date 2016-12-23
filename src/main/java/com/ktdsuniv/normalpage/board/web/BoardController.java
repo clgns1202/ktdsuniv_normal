@@ -18,7 +18,6 @@ import user.schema.UsersSchema;
 
 
 @Controller
-@RequestMapping("/board")
 public class BoardController {
 
 	@Autowired
