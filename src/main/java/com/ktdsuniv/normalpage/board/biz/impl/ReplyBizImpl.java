@@ -2,8 +2,8 @@ package com.ktdsuniv.normalpage.board.biz.impl;
 
 import java.util.List;
 
-import com.ktdsuniv.instructor.board.biz.ReplyBiz;
-import com.ktdsuniv.instructor.board.dao.ReplyDao;
+import com.ktdsuniv.normalpage.board.biz.ReplyBiz;
+import com.ktdsuniv.normalpage.board.dao.ReplyDao;
 
 import board.schema.RepliesSchema;
 

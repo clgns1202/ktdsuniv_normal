@@ -20,6 +20,8 @@ public interface BoardDao {
 	public BoardsSchema dailyReportDetail(String boardId);
 
 	public int dailyReportDelete(String boardId);
+	
+	
 
 
 }

@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import com.ktdsuniv.instructor.board.biz.ReplyBiz;
-import com.ktdsuniv.instructor.board.service.ReplyService;
+import com.ktdsuniv.normalpage.board.biz.ReplyBiz;
+import com.ktdsuniv.normalpage.board.service.ReplyService;
 
 import board.schema.RepliesSchema;
 

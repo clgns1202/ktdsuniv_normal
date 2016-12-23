@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ktdsuniv.instructor.board.service.ReplyService;
+import com.ktdsuniv.normalpage.board.service.ReplyService;
 
 import board.schema.RepliesSchema;
 import common.constants.Session;

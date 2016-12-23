@@ -12,5 +12,14 @@ public interface BoardBiz {
 	public BoardsSchema getIdBoardBy(String id);
 
 	public List<BoardsSchema> getMyStudyNote(UsersSchema user);
+	
+	public boolean addDailyReport(BoardsSchema board);
+
+	public List<BoardsSchema> dailyReportsList(UsersSchema user);
+
+	public BoardsSchema dailyReportDetail(String boardId);
+
+	public boolean dailyReportDelete(String boardId);
+
 
 }

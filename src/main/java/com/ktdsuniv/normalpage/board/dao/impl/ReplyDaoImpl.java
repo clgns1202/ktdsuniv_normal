@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
-import com.ktdsuniv.instructor.board.dao.ReplyDao;
+import com.ktdsuniv.normalpage.board.dao.ReplyDao;
 
 import board.schema.RepliesSchema;
 import common.support.mongo.MongoTemplateSupport;

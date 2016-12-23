@@ -4,22 +4,18 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-<<<<<<< HEAD
-=======
 import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> f755904bd48e68ce7698a12ae3e8c32f83bd45c2
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ktdsuniv.instructor.board.service.BoardService;
+import com.ktdsuniv.normalpage.board.service.BoardService;
 
 import board.schema.BoardsSchema;
 import common.constants.Session;
 import user.schema.UsersSchema;
 
-import board.schema.BoardsSchema;
 
 @Controller
 @RequestMapping("/board")
@@ -32,7 +28,6 @@ public class BoardController {
 		this.boardService = boardService;
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping("/dailyReport/addDailyReport")
 	public String addDailyReportsPage() {
 		return "dailyReport/addDailyReport";
@@ -80,7 +75,6 @@ public class BoardController {
 		boolean isSuccess = boardService.doDailyReportDelete(boardId);
 		return "redirect:/dailyReport/list";
 	}
-=======
 	@RequestMapping("/studyNote/write")
 	public ModelAndView viewStudyNoteWritePage(HttpSession session) {
 		ModelAndView view = new ModelAndView();
@@ -113,5 +107,4 @@ public class BoardController {
 		return view;
 	}
 	
->>>>>>> f755904bd48e68ce7698a12ae3e8c32f83bd45c2
 }
