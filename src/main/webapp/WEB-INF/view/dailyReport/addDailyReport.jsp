@@ -16,7 +16,9 @@
 		$("#dailyDate").on("change", function(){
 			alert($(this).val());
 		});
-		$.post(,,)
+		$.post( , {}, function(data){
+			
+		});
 		
 		$("#submitBtn").click(function () {
 			
