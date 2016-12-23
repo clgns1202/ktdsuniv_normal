@@ -36,11 +36,10 @@ public class BoardController {
 	}
 	
 	/**
-	 * 
-	 * @return
-	 
 	@RequestMapping("/studyNote/list")
 	public ModelAndView viewStudyNotelistPage() {
+		
 	}
 	*/
+	
 }
