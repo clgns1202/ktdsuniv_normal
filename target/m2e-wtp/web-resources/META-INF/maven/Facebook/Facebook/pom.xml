@@ -26,6 +26,7 @@
 	</build>
 
 	<dependencies>
+<<<<<<< HEAD
 		
 		<dependency>
 			<groupId>com.ktds</groupId>
@@ -35,6 +36,8 @@
 			<systemPath>C:\Users\owner\.m2\repository\com\ktds\KtdsSchema\1.0\KtdsSchema-1.0.jar</systemPath>
 		</dependency>
 	
+=======
+>>>>>>> 603e214dbf13fd9872bf83d809af1ff4368e0109
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -47,6 +50,17 @@
 			</exclusions>
 		</dependency>
 
+<<<<<<< HEAD
+=======
+		<dependency>
+			<groupId>com.ktds</groupId>
+			<artifactId>KtdsSchema</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>C:\Users\owner\.m2\repository\com\ktds\KtdsSchema\1.0\KtdsSchema-1.0.jar</systemPath>
+		</dependency>
+
+>>>>>>> 603e214dbf13fd9872bf83d809af1ff4368e0109
 		<!-- JSTL Libraries -->
 		<dependency>
 			<groupId>jstl</groupId>

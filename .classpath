@@ -39,5 +39,9 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/KtdsSchema"/>
+>>>>>>> 603e214dbf13fd9872bf83d809af1ff4368e0109
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
