@@ -25,7 +25,13 @@
 		var path = window.location.pathname;
 		var menu = path.split("/");
 		
-		$("#"+menu[2]).parent().addClass("current");
+		$("#"+menu[3]).parent().addClass("current");
+		
+		if("${sessionScope._USER_}" != ""){
+			$.post("<c:url value="/user/lectureInfo"/>", function(data){
+				alert(data.id);
+			});
+		}
 		
 	});
 </script>
@@ -33,6 +39,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<c:if test="${not empty sessionScope._USER_ }" >
 
 <div id="sidebar">
 
@@ -44,8 +52,8 @@
 		<!-- Nav -->
 		<nav id="nav">
 		<ul>
-			<li><a id="room" href="<c:url value="/room/roomList"/>">내 정보</a></li>
-			<li><a id="lecture" href="<c:url value="/lecture/list"/>">내 강의</a></li>
+			<li><a id="userInfo" href="<c:url value="/user/userInfo"/>">내 정보</a></li>
+			<li><a id="userLecture" href="<c:url value="/user/userLecture"/>">내 강의</a></li>
 			<li><a id="user" href="<c:url value="/user/list"/>">메모장</a></li>
 			<li><a id="instructor" href="<c:url value="/dailyReport/list"/>">일일 학습</a></li>
 			<li><a id="category" href="<c:url value="/category/categoryPage"/>">프로젝트 관리</a></li>
@@ -71,7 +79,7 @@
 		</ul>
 
 	</div>
-
+</c:if>
 
 	<div id="content">
 		<!-- <div class="inner">

@@ -87,7 +87,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<LecturesSchema> getUserLecture(HttpSession session) {
 		UsersSchema user = (UsersSchema) session.getAttribute(Session.USER);
-		return userBiz.getUserLecture(user);
+		if(user != null){
+			return userBiz.getUserLecture(user);			
+		}
+		else{
+			return null;
+		}
 	}
 
 

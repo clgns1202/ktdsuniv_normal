@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -77,7 +78,7 @@ public class UserController {
 	public String doSignInAction(UsersSchema user, HttpSession session) {
 
 		userService.signIn(user, session);
-		return "redirect:/main";
+		return "redirect:/user/myInfo";
 
 	}
 
@@ -87,7 +88,7 @@ public class UserController {
 		return "user/signIn";
 	}
 
-	@RequestMapping("/user/viewUserModifyPage")
+	@RequestMapping("/user/userInfo/viewUserModifyPage")
 	public ModelAndView viewUserModifyPage(HttpSession session) {
 		UsersSchema user = userService.getUserInfo(session);
 		ModelAndView view = new ModelAndView();
@@ -151,8 +152,19 @@ public class UserController {
 		view.addObject("lectures", lectures);
 		return view;
 	}
+	
+	@RequestMapping("/user/lectureInfo")
+	@ResponseBody
+	public LecturesSchema getLectureInfo(HttpSession session){
+		List<LecturesSchema> lectures = userService.getUserLecture(session);
+		if(lectures.size() != 0 && lectures != null){
+			return lectures.get(0);
+		}else{
+			return null;
+		}
+	}
 
-	@RequestMapping("/user/withDrawal")
+	@RequestMapping("/user/userInfo/withDrawal")
 	public String userWithdrawal() {
 		return "/myInfo/userWithdrawal";
 	}
